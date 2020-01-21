@@ -22,19 +22,25 @@ class TransformViewController: UIViewController {
     fileprivate func animateMyView() {
         print("frame: \(someView.frame)")
         print("bounds: \(someView.bounds)")
-        UIView.animate(withDuration: 5, delay: 0, options:[.curveLinear], animations: {
-            self.someView.transform = self.someView.transform.rotated(by: .pi)
-        }, completion:{ (a:Bool) in
-            print("after transform")
-            print("frame: \(self.someView.frame)")
-            print("bounds: \(self.someView.bounds)")
-            self.animateMyView()
+        UIView.animate(withDuration: 5, delay: 0, options:[.curveLinear], animations: { [weak self] in
+            if let exist = self {
+                exist.someView.transform = exist.someView.transform.rotated(by: .pi)
+            }
+            }, completion:{ [weak self] (a:Bool)  in
+                if let exist = self {
+                    print("after transform")
+                    print("frame: \(exist.someView.frame)")
+                    print("bounds: \(exist.someView.bounds)")
+                    exist.animateMyView()
+                }
         })
     }
     
     @IBAction func style1Action(_ sender: Any) {
-        UIView.animate(withDuration: 5, delay: 0, options:[.curveLinear], animations: {
-            self.someView.transform = CGAffineTransform(rotationAngle: .pi)
+        UIView.animate(withDuration: 5, delay: 0, options:[.curveLinear], animations: { [weak self] in
+            if let exist = self {
+            exist.someView.transform = CGAffineTransform(rotationAngle: .pi)
+            }
         }, completion:{ (a:Bool) in
         })
     }
@@ -43,4 +49,9 @@ class TransformViewController: UIViewController {
         animateMyView()
     }
     
+    @IBAction func pushView(_ sender: Any) {
+        someView.layer.removeAllAnimations()
+        view.layer.removeAllAnimations()
+        view.layoutIfNeeded()
+    }
 }
