@@ -3,7 +3,7 @@
 //  AnimationsTests
 //
 //  Created by admin on 06/01/20.
-//  Copyright © 2020 Nihilent. All rights reserved.
+//  Copyright © 2020 preetamjadakar. All rights reserved.
 //
 
 import XCTest
