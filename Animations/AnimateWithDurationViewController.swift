@@ -26,8 +26,8 @@ class AnimateWithDurationViewController: UIViewController {
         @IBAction func style1Action(_ sender: Any) {
             animateStyle1(centerView: centerView)
         }
-        
-        @IBAction func style2Action(_ sender: Any) {
+
+    @IBAction func style2Action(_ sender: Any) {
         }
         
         //Add View

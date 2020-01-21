@@ -15,6 +15,7 @@ class TransitionsViewController: UIViewController {
     var containerView: UIView!
     
     var redViewHidden = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

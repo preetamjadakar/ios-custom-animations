@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +30,13 @@ class ViewController: UIViewController {
     @IBAction func transitionsAction(_ sender: Any) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let transitionVC = storyboard.instantiateViewController(withIdentifier: "transitions") as! TransitionsViewController
+        transitionVC.title = (sender as! UIButton).titleLabel?.text
+        
+        self.navigationController?.pushViewController(transitionVC, animated:true)
+    }
+    @IBAction func transformButtonAction(_ sender: Any) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let transitionVC = storyboard.instantiateViewController(withIdentifier: "transforms") as! TransformViewController
         transitionVC.title = (sender as! UIButton).titleLabel?.text
         
         self.navigationController?.pushViewController(transitionVC, animated:true)
