@@ -12,6 +12,7 @@ class TransformViewController: UIViewController {
     
     @IBOutlet weak var someView: UIView!
     
+    var isAnimating = false
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -41,17 +42,35 @@ class TransformViewController: UIViewController {
             if let exist = self {
             exist.someView.transform = CGAffineTransform(rotationAngle: .pi)
             }
-        }, completion:{ (a:Bool) in
-        })
+        }, completion:nil)
     }
     
     @IBAction func style2Action(_ sender: Any) {
         animateMyView()
     }
     
+    fileprivate func style3Animation(_ sender: Any) {
+        if !isAnimating {return}
+        UIView.animate(withDuration: 1, delay: 0, options:[.curveLinear], animations: { [weak self] in
+            if let exist = self {
+                exist.someView.transform = CGAffineTransform(rotationAngle: .pi)
+            }
+            }, completion:nil)
+        UIView.animate(withDuration: 1, delay: 0, options:[.curveLinear], animations: { [weak self] in
+            if let exist = self {
+                exist.someView.transform = exist.someView.transform.rotated(by: .pi)
+            }
+            }, completion:{finished in
+                self.style3Animation(sender)
+        })
+    }
+    
+    @IBAction func style3Action(_ sender: Any) {
+        if isAnimating { return }
+        isAnimating = true
+        style3Animation(sender)
+    }
     @IBAction func pushView(_ sender: Any) {
-        someView.layer.removeAllAnimations()
-        view.layer.removeAllAnimations()
-        view.layoutIfNeeded()
+        isAnimating = false
     }
 }

@@ -80,13 +80,6 @@ class TransitionsViewController: UIViewController {
     func animateUsingTransition() {
         let viewToAnimate = (redViewHidden ? greenView : redView)!
         let viewToHide = (redViewHidden ? redView : greenView)!
-        
-//        UIView.transition(with: viewToAnimate, duration: 0.5, options: [.transitionCurlUp, .showHideTransitionViews], animations: {
-//            self.redViewHidden = !self.redViewHidden
-//        }) { (finish) in
-//            self.view.bringSubviewToFront(viewToHide)
-//        }
-        
         UIView.transition(from: viewToAnimate, to: viewToHide, duration: 0.5, options: [.transitionCurlUp, .showHideTransitionViews]) { (finish) in
                         self.redViewHidden = !self.redViewHidden
 

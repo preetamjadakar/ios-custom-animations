@@ -162,7 +162,7 @@
                                 <rect key="frame" x="0.0" y="822" width="414" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwJ-n4-4z8">
-                                        <rect key="frame" x="0.0" y="0.0" width="207" height="40"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="138" height="40"/>
                                         <state key="normal" title="Style 1"/>
                                         <connections>
                                             <action selector="style1Action:" destination="Cl5-iN-D8F" eventType="touchUpInside" id="Rdc-FQ-pU6"/>
@@ -170,11 +170,17 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="we3-jS-yRW">
-                                        <rect key="frame" x="207" y="0.0" width="207" height="40"/>
+                                        <rect key="frame" x="138" y="0.0" width="138" height="40"/>
                                         <state key="normal" title="Style 2"/>
                                         <connections>
-                                            <action selector="style2Action:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0ER-x2-GkD"/>
                                             <action selector="style2Action:" destination="Cl5-iN-D8F" eventType="touchUpInside" id="n0E-9r-3UV"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Bl-Pg-zZz">
+                                        <rect key="frame" x="276" y="0.0" width="138" height="40"/>
+                                        <state key="normal" title="Style 3"/>
+                                        <connections>
+                                            <action selector="style3Action:" destination="Cl5-iN-D8F" eventType="touchUpInside" id="uYL-Ya-fLW"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -187,6 +193,7 @@
                                 <state key="normal" title="PushView"/>
                                 <connections>
                                     <action selector="pushView:" destination="Cl5-iN-D8F" eventType="touchUpInside" id="meH-Pc-3BP"/>
+                                    <segue destination="1Po-Td-tuE" kind="presentation" id="BKk-mo-wIq"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -216,7 +223,7 @@
             <objects>
                 <viewController id="1Po-Td-tuE" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0dJ-ah-smZ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Lsc-zP-heh"/>
