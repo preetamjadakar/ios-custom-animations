@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xnu-Cs-0P7">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="180"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQm-q0-zln">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
@@ -40,6 +40,13 @@
                                                 <state key="normal" title="Transform"/>
                                                 <connections>
                                                     <action selector="transformButtonAction:" destination="ZR9-vH-J2O" eventType="touchUpInside" id="uy8-xK-WBw"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wuc-3R-GES" userLabel="UIViewAnimator">
+                                                <rect key="frame" x="0.0" y="150" width="414" height="30"/>
+                                                <state key="normal" title="UIViewAnimator"/>
+                                                <connections>
+                                                    <action selector="animatorButtonAction:" destination="ZR9-vH-J2O" eventType="touchUpInside" id="Pby-B5-myI"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -202,7 +209,7 @@
                             <constraint firstItem="jN2-ga-hus" firstAttribute="bottom" secondItem="qDF-nX-AUB" secondAttribute="bottom" id="0yv-MJ-Tyq"/>
                             <constraint firstAttribute="bottom" secondItem="pfc-95-0Fl" secondAttribute="bottom" constant="82" id="7a0-Ld-eyN"/>
                             <constraint firstItem="7Wq-vr-1bm" firstAttribute="centerX" secondItem="DU7-Wa-VHg" secondAttribute="centerX" id="7rT-vz-GQZ"/>
-                            <constraint firstItem="jN2-ga-hus" firstAttribute="leading" secondItem="pfc-95-0Fl" secondAttribute="trailing" constant="-414" id="CdW-w4-DWY"/>
+                            <constraint firstAttribute="trailing" secondItem="pfc-95-0Fl" secondAttribute="trailing" id="CdW-w4-DWY"/>
                             <constraint firstItem="jN2-ga-hus" firstAttribute="leading" secondItem="qDF-nX-AUB" secondAttribute="leading" id="PWG-R2-czd"/>
                             <constraint firstItem="7Wq-vr-1bm" firstAttribute="centerY" secondItem="DU7-Wa-VHg" secondAttribute="centerY" id="Wph-oV-QfW"/>
                             <constraint firstItem="pfc-95-0Fl" firstAttribute="leading" secondItem="DU7-Wa-VHg" secondAttribute="leading" id="xSB-WW-pUp"/>
@@ -250,6 +257,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVm-FR-Yd7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-823.1884057971015" y="121.875"/>
+        </scene>
+        <!--View Animator View Controller-->
+        <scene sceneID="iQF-0N-1wg">
+            <objects>
+                <viewController storyboardIdentifier="animator" id="TaT-d2-jpN" customClass="ViewAnimatorViewController" customModule="Animations" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mTE-E7-WRB">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" notEnabled="YES"/>
+                        </accessibility>
+                        <viewLayoutGuide key="safeArea" id="wjb-SR-e4b"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="45w-Tn-fiW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="87" y="1447"/>
         </scene>
     </scenes>
 </document>

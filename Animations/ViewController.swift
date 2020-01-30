@@ -41,5 +41,11 @@ final class ViewController: UIViewController {
         
         self.navigationController?.pushViewController(transitionVC, animated:true)
     }
+    @IBAction func animatorButtonAction(_ sender: Any) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let transitionVC = storyboard.instantiateViewController(withIdentifier: "animator") as! ViewAnimatorViewController
+        transitionVC.title = (sender as! UIButton).titleLabel?.text
+        self.navigationController?.pushViewController(transitionVC, animated:true)
+    }
 }
 
