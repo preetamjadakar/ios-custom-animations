@@ -173,9 +173,11 @@ class ViewAnimatorViewController: UIViewController {
                 self.bottomConstraint.constant = 440
                 self.popupView.layer.cornerRadius = 0
             }
-            // remove all running animators
-            self.runningAnimators.removeAll()
-            
+            //set `nil` for runnnig animators
+            transitionAnimator.stopAnimation(false)
+            self.runningAnimators.removeAll { (animator) -> Bool in
+                animator == transitionAnimator
+            }
         }
         transitionAnimator.startAnimation()
         
@@ -187,6 +189,12 @@ class ViewAnimatorViewController: UIViewController {
                 self.closedTitleLabel.alpha = 1
             }
         })
+        inTitleAnimator.addCompletion { (_) in
+            inTitleAnimator.stopAnimation(false)
+            self.runningAnimators.removeAll { (animator) -> Bool in
+                animator == inTitleAnimator
+            }
+        }
         
         inTitleAnimator.scrubsLinearly = false
         inTitleAnimator.startAnimation()
@@ -199,10 +207,15 @@ class ViewAnimatorViewController: UIViewController {
                 self.closedTitleLabel.alpha = 1
             }
         })
+        outTitleAnimator.addCompletion { (position) in
+            outTitleAnimator.stopAnimation(false)
+            self.runningAnimators.removeAll { (animator) -> Bool in
+                animator == outTitleAnimator
+            }
+        }
         outTitleAnimator.scrubsLinearly = false
         outTitleAnimator.startAnimation()
         
-        runningAnimators.removeAll()
         runningAnimators.append(transitionAnimator)
         runningAnimators.append(inTitleAnimator)
         runningAnimators.append(outTitleAnimator)
@@ -211,6 +224,7 @@ class ViewAnimatorViewController: UIViewController {
     @objc private func popupViewTapped(recognizer: UITapGestureRecognizer) {
         animateTransitionIfNeeded()
     }
+    
     @objc private func placeholderPopupViewTapped(recognizer: UITapGestureRecognizer) {
         //
     }
