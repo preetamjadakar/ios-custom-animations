@@ -16,10 +16,6 @@ final class ViewController: UIViewController {
         title = "iOS Animations"
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     @IBAction func animateWithDurationAction(_ sender: Any) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let animationVC = storyboard.instantiateViewController(withIdentifier: "animatewithduration") as! AnimateWithDurationViewController
@@ -34,6 +30,7 @@ final class ViewController: UIViewController {
         
         self.navigationController?.pushViewController(transitionVC, animated:true)
     }
+    
     @IBAction func transformButtonAction(_ sender: Any) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let transitionVC = storyboard.instantiateViewController(withIdentifier: "transforms") as! TransformViewController
@@ -41,6 +38,7 @@ final class ViewController: UIViewController {
         
         self.navigationController?.pushViewController(transitionVC, animated:true)
     }
+    
     @IBAction func animatorButtonAction(_ sender: Any) {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let transitionVC = storyboard.instantiateViewController(withIdentifier: "animator") as! ViewAnimatorViewController

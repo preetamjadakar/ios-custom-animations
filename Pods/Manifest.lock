@@ -1,0 +1,16 @@
+PODS:
+  - AnalogClock (1.0.0)
+
+DEPENDENCIES:
+  - AnalogClock
+
+SPEC REPOS:
+  https://cdn.cocoapods.org/:
+    - AnalogClock
+
+SPEC CHECKSUMS:
+  AnalogClock: 00515e08f77f923c69442d45c73a77f13ed6c357
+
+PODFILE CHECKSUM: 04ab859c31142c19b87b7b2823d749c91f372396
+
+COCOAPODS: 1.8.3

@@ -32,7 +32,7 @@ class ViewAnimatorViewController: UIViewController {
     }()
     private lazy var placeholderTapRecognizer: UITapGestureRecognizer = {
         let recognizer = UITapGestureRecognizer()
-        recognizer.addTarget(self, action: #selector(placeholderPopupViewTapped(recognizer:)))
+        recognizer.addTarget(self, action: #selector(placeholderPopupViewTapped(_:)))
         return recognizer
     }()
     private lazy var panRecognizer: UIPanGestureRecognizer = {
@@ -207,7 +207,7 @@ class ViewAnimatorViewController: UIViewController {
                 self.closedTitleLabel.alpha = 1
             }
         })
-        outTitleAnimator.addCompletion { (position) in
+        outTitleAnimator.addCompletion { position in
             outTitleAnimator.stopAnimation(false)
             self.runningAnimators.removeAll { (animator) -> Bool in
                 animator == outTitleAnimator
@@ -225,7 +225,7 @@ class ViewAnimatorViewController: UIViewController {
         animateTransitionIfNeeded()
     }
     
-    @objc private func placeholderPopupViewTapped(recognizer: UITapGestureRecognizer) {
+    @objc private func placeholderPopupViewTapped(_ recognizer: UITapGestureRecognizer) {
         //
     }
     
