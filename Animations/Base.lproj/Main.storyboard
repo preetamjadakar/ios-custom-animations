@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xnu-Cs-0P7">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="380"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="430"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQm-q0-zln">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
@@ -72,9 +72,16 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66V-DK-J9a" userLabel="UIViewAnimator">
                                                 <rect key="frame" x="0.0" y="350" width="414" height="30"/>
-                                                <state key="normal" title="Timer"/>
+                                                <state key="normal" title="Pod Timer"/>
                                                 <connections>
                                                     <segue destination="L9n-Hh-iyU" kind="show" id="5eU-EO-tpf"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jX-Ba-sAT" userLabel="UIViewAnimator">
+                                                <rect key="frame" x="0.0" y="400" width="414" height="30"/>
+                                                <state key="normal" title="Timer"/>
+                                                <connections>
+                                                    <segue destination="3aK-Yn-nCr" kind="show" id="QUT-kK-Sy3"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -290,6 +297,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9i9-c1-cPP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1046" y="762"/>
+        </scene>
+        <!--Timer View Controller-->
+        <scene sceneID="UFD-5r-gni">
+            <objects>
+                <viewController id="3aK-Yn-nCr" customClass="TimerViewController" customModule="Animations" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zl3-iI-4i0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="FcV-3T-4kv"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NL6-ru-OaQ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d0s-NN-e8B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2356" y="776"/>
         </scene>
         <!--Client View Controller-->
         <scene sceneID="zdA-d9-r9X">
