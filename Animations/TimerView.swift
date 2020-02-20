@@ -16,11 +16,12 @@ class TimerView: UIView {
     var circlePath: UIBezierPath!
     
     var circleLayer: CALayer!
-    var hourHandLayer: CALayer!
+    var minutesHandLayer: CALayer!
     
     var secondsHandAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-    
-    let transitionAnimator = UIViewPropertyAnimator()
+
+    var minutesHandAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+
     override func draw(_ rect: CGRect) {
         // Drawing code
         // Take shorter of both sides
@@ -79,22 +80,22 @@ class TimerView: UIView {
         replicatorLayerFat.addSublayer(instanceLayerFat)
         
         // Create and draw hour hand layer
-        hourHandLayer = CALayer()
-        hourHandLayer.backgroundColor = UIColor.black.cgColor
+        minutesHandLayer = CALayer()
+        minutesHandLayer.backgroundColor = UIColor.black.cgColor
         // Puts the center of the rectangle in the center of the clock
-        hourHandLayer.anchorPoint = CGPoint(x: 0.5, y: 0.2)
+        minutesHandLayer.anchorPoint = CGPoint(x: 0.5, y: 0.2)
         // Positions the hand in the middle of the clock
-        hourHandLayer.position = CGPoint(x: rect.size.width / 2, y: rect.size.height / 2)
+        minutesHandLayer.position = CGPoint(x: rect.size.width / 2, y: rect.size.height / 2)
         
         // Set size of all hands
         if rect.size.width > rect.size.height {
-            hourHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.height / 2) + 0.5 )
+            minutesHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.height / 2) + 0.5 )
         } else {
-            hourHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.width / 2) + 0.5)
+            minutesHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.width / 2) + 0.5)
         }
         
         // Add hour hand layers to as sublayers
-        circleLayer.addSublayer(hourHandLayer)
+        circleLayer.addSublayer(minutesHandLayer)
         
         
         // Get current hours, minutes and seconds
@@ -106,11 +107,11 @@ class TimerView: UIView {
         
         
         // Calculate the angles for the each hand
-        let hourAngle = CGFloat(0 * (360 / 12)) + CGFloat(0) * (1.0 / 60) * (360 / 12)
+        let hourAngle = CGFloat(hours * (360 / 12)) + CGFloat(0) * (1.0 / 60) * (360 / 12)
         let minuteAngle = CGFloat(minutes * (360 / 60))
         let secondsAngle = CGFloat(seconds * (360 / 60))
         
-        hourHandLayer.transform = CATransform3DMakeRotation(.pi, 0, 0, 1)
+        minutesHandLayer.transform = CATransform3DMakeRotation(.pi, 0, 0, 1)
         
         
         // Transform the hands according to the calculated angles
@@ -147,13 +148,27 @@ class TimerView: UIView {
         //        hourHandLayer.add(hoursHandAnimation, forKey: "hoursHandAnimation")
     }
     
-    func startTimer(withValue:Int) {
+    func startTimer(withValue:CGFloat) {
         // Create animation for seconds hand
         // default repeat of  0
         //                secondsHandAnimation.repeatCount = 0
         // One animation (360deg) takes 60 seconds
         
+        let minuteAngle = CGFloat(withValue/60 * (360 / 60))
+
+        minutesHandAnimation.duration = CFTimeInterval(withValue)
+        minutesHandAnimation.isRemovedOnCompletion = false
+        minutesHandAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        // From start angle (according to calculated angle from time) plus 360deg which equals 1 rotation
+        minutesHandAnimation.fromValue = (minuteAngle + 180) * CGFloat(Double.pi / 180)
+        minutesHandAnimation.toValue = (0 + 180) * CGFloat(Double.pi / 180)
         
+        minutesHandAnimation.byValue = 2 * Double.pi
+        //        secondsHandAnimation
+        minutesHandLayer.add(minutesHandAnimation, forKey: minutesHandAnimation.keyPath)
+        
+        
+        /*
         secondsHandAnimation.duration = CFTimeInterval(withValue)
         secondsHandAnimation.isRemovedOnCompletion = false
         secondsHandAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
@@ -163,20 +178,24 @@ class TimerView: UIView {
         
         secondsHandAnimation.byValue = 2 * Double.pi
         //        secondsHandAnimation
-        hourHandLayer.add(secondsHandAnimation, forKey: secondsHandAnimation.keyPath)
+        minutesHandLayer.add(secondsHandAnimation, forKey: secondsHandAnimation.keyPath)
+ */
     }
     
     func stopAnimation() {
-        hourHandLayer.removeAnimation(forKey: secondsHandAnimation.keyPath!)
-        hourHandLayer.transform = CATransform3DMakeRotation(.pi, 0, 0, 1)
+        //        minutesHandLayer.removeAnimation(forKey: secondsHandAnimation.keyPath!)
+        minutesHandLayer.removeAnimation(forKey: minutesHandAnimation.keyPath!)
+        minutesHandLayer.transform = CATransform3DMakeRotation(.pi, 0, 0, 1)
     }
     
-    func setHoursHand(with value: Int) {
-        let fromAngle = (CGFloat(value * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
-        hourHandLayer.transform = CATransform3DMakeRotation(fromAngle, 0, 0, 1)
+    func setHoursHand(with value: CGFloat) {
+//        let fromAngle = (CGFloat(value * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
+        let fromAngle = (CGFloat(value/60 * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
+        minutesHandLayer.transform = CATransform3DMakeRotation(fromAngle, 0, 0, 1)
     }
     func pauseTimer() {
-        hourHandLayer.transform = hourHandLayer.presentation()!.transform
-        hourHandLayer.removeAnimation(forKey: secondsHandAnimation.keyPath!)
+        minutesHandLayer.transform = minutesHandLayer.presentation()!.transform
+//        minutesHandLayer.removeAnimation(forKey: secondsHandAnimation.keyPath!)
+        minutesHandLayer.removeAnimation(forKey: minutesHandAnimation.keyPath!)
     }
 }

@@ -54,7 +54,7 @@ class TimerViewController: UIViewController {
             }
             startPauseButton.setTitle("Pause", for: .normal)
             
-            timerView.startTimer(withValue: timerValueInSeconds)
+            timerView.startTimer(withValue: CGFloat(timerValueInSeconds))
             self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(onTimerFire(timer:)), userInfo: nil, repeats: true)
             guard let mainLoopTimer = self.timer else { fatalError("Failed to create timer") }
             RunLoop.current.add(mainLoopTimer, forMode: RunLoop.Mode.common)
@@ -134,6 +134,7 @@ extension TimerViewController: PickerViewDelegate {
         timerValueInSeconds = min * 60 + sec
         startPauseButton.isEnabled = timerValueInSeconds > 0
         setTimerLabelValue(with: min, sec: sec)
-        timerView.setHoursHand(with: sec)
+//        timerView.setHoursHand(with: sec)
+        timerView.setHoursHand(with: CGFloat(timerValueInSeconds))
     }
 }
