@@ -305,14 +305,67 @@
                     <view key="view" contentMode="scaleToFill" id="zl3-iI-4i0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SM-OG-wsT" customClass="TimerView" customModule="Animations" customModuleProvider="target">
+                                <rect key="frame" x="87" y="328" width="240" height="240"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="240" id="eob-zd-1gt"/>
+                                    <constraint firstAttribute="width" constant="240" id="oZi-5Y-BZx"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00 : 00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guz-1F-GTV">
+                                <rect key="frame" x="142.5" y="601" width="129.5" height="49"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="41"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="bhe-4T-qgW" appends="YES" id="l9G-YL-fPi"/>
+                                </connections>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBP-6F-MPQ">
+                                <rect key="frame" x="293" y="734" width="34" height="30"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startOrPauseAnimationAction:" destination="3aK-Yn-nCr" eventType="touchUpInside" id="uSH-Ia-GI7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kra-9J-dBE">
+                                <rect key="frame" x="87" y="734" width="39" height="30"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetTimerAction:" destination="3aK-Yn-nCr" eventType="touchUpInside" id="STZ-u7-dxm"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6SM-OG-wsT" firstAttribute="centerY" secondItem="zl3-iI-4i0" secondAttribute="centerY" id="Aqh-Z2-qFW"/>
+                            <constraint firstItem="guz-1F-GTV" firstAttribute="centerX" secondItem="zl3-iI-4i0" secondAttribute="centerX" id="Kr5-Hn-zXI"/>
+                            <constraint firstItem="Kra-9J-dBE" firstAttribute="top" secondItem="eBP-6F-MPQ" secondAttribute="top" id="cDd-AN-bAa"/>
+                            <constraint firstItem="Kra-9J-dBE" firstAttribute="leading" secondItem="FcV-3T-4kv" secondAttribute="leading" constant="87" id="dZM-3m-Lv2"/>
+                            <constraint firstItem="6SM-OG-wsT" firstAttribute="centerX" secondItem="zl3-iI-4i0" secondAttribute="centerX" id="mOY-Ki-Jkd"/>
+                            <constraint firstItem="FcV-3T-4kv" firstAttribute="trailing" secondItem="eBP-6F-MPQ" secondAttribute="trailing" constant="87" id="otK-WZ-2h0"/>
+                            <constraint firstItem="eBP-6F-MPQ" firstAttribute="top" secondItem="guz-1F-GTV" secondAttribute="bottom" constant="84" id="uU7-fF-FBN"/>
+                            <constraint firstItem="guz-1F-GTV" firstAttribute="top" secondItem="6SM-OG-wsT" secondAttribute="bottom" constant="33" id="yDL-0V-0JV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="FcV-3T-4kv"/>
                     </view>
                     <navigationItem key="navigationItem" id="NL6-ru-OaQ"/>
+                    <connections>
+                        <outlet property="timerValueLabel" destination="guz-1F-GTV" id="K1r-J4-BHQ"/>
+                        <outlet property="timerView" destination="6SM-OG-wsT" id="opZ-dz-7YN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d0s-NN-e8B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bhe-4T-qgW" userLabel="TimerValueLabel Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="timerValueLabelTapped:" destination="3aK-Yn-nCr" id="SYj-fM-9Ra"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2356" y="776"/>
+            <point key="canvasLocation" x="2355.072463768116" y="775.44642857142856"/>
         </scene>
         <!--Client View Controller-->
         <scene sceneID="zdA-d9-r9X">

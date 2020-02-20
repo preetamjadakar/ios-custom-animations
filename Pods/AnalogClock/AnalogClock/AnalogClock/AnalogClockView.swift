@@ -117,7 +117,7 @@ public class AnalogClockView: UIView {
         secondHandLayer = CALayer()
         secondHandLayer.backgroundColor = UIColor.red.cgColor
         // Puts the center of the rectangle in the center of the clock
-        secondHandLayer.anchorPoint = CGPoint(x: 0.5, y: 0.2)
+        secondHandLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         // Positions the hand in the middle of the clock
         secondHandLayer.position = CGPoint(x: rect.size.width / 2, y: rect.size.height / 2)
         
