@@ -12,9 +12,9 @@ protocol PickerViewDelegate {
     func didSelect(min: Int, sec:Int)
 }
 class PickerView: UIView {
-
+    
     @IBOutlet weak var timePicker: UIPickerView!
-
+    
     var delegate: PickerViewDelegate?
     class func instanceFromNib() -> PickerView {
         return UINib(nibName: "PickerView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! PickerView
@@ -22,13 +22,13 @@ class PickerView: UIView {
     
     override class func awakeFromNib() {
         super.awakeFromNib()
-//        let minLabel = UILabel()
-//        minLabel.text = "min."
-//        let secLabel = UILabel()
-//        secLabel.text = "sec."
-//        timePicker.setPickerLabels(labels: [0 : minLabel, 1: secLabel], containedView: self)
+        //        let minLabel = UILabel()
+        //        minLabel.text = "min."
+        //        let secLabel = UILabel()
+        //        secLabel.text = "sec."
+        //        timePicker.setPickerLabels(labels: [0 : minLabel, 1: secLabel], containedView: self)
     }
-  
+    
     @IBAction func doneButtonAction(_ sender: Any) {
         self.isHidden = true
         delegate?.didSelect(min: timePicker.selectedRow(inComponent: 0), sec: timePicker.selectedRow(inComponent: 1))
@@ -44,7 +44,7 @@ class PickerView: UIView {
     }
 }
 
- 
+
 extension PickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
@@ -55,13 +55,12 @@ extension PickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        
-        return "\(row)"
+        return "\(String(format: "%02d", row))"
     }
 }
 
 extension UIPickerView {
-   
+    
     func setPickerLabels(labels: [Int:UILabel], containedView: UIView) { // [component number:label]
         
         let fontSize:CGFloat = 20

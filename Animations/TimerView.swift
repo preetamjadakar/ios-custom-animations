@@ -11,10 +11,10 @@ import UIKit
 class TimerView: UIView {
     var shapeLayer: CAShapeLayer!
     var circlePath: UIBezierPath!
-
+    
     var circleLayer: CALayer!
     var hourHandLayer: CALayer!
-
+    
     var secondsHandAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
     
     let transitionAnimator = UIViewPropertyAnimator()
@@ -39,33 +39,33 @@ class TimerView: UIView {
         shapeLayer.lineWidth = 8.0
         
         self.layer.addSublayer(shapeLayer)
-
+        
         // Instantiate circleLayer and put it into the main rect
-              circleLayer = CALayer()
-              circleLayer.frame = rect
-              self.layer.addSublayer(circleLayer)
-              
-              // Create replicatorLayer to make a complete circle consisting of 12 parts
-              let replicatorLayerFat = CAReplicatorLayer()
-              
-              // Offset to put both replicator layers into the vertical center
-              let offsetY = (rect.size.height - rect.size.width) / 2
-              
-              if rect.size.width > rect.size.height {
-                  replicatorLayerFat.frame = rect
-              } else {
-                  replicatorLayerFat.frame =  CGRect(x: rect.minX, y: offsetY, width: rect.width, height: rect.width)
-              }
-              
-              
-              replicatorLayerFat.instanceCount = 12
-              
-              // 12 instances (360deg / 12) -> angle for each part
-              let angleFat = Float(Double.pi * 2.0) / 12
-              
-              // Add correct angle for each part to replicatorLayer
-              replicatorLayerFat.instanceTransform = CATransform3DMakeRotation(CGFloat(angleFat), 0.0, 0.0, 1.0)
-              self.layer.addSublayer(replicatorLayerFat)
+        circleLayer = CALayer()
+        circleLayer.frame = rect
+        self.layer.addSublayer(circleLayer)
+        
+        // Create replicatorLayer to make a complete circle consisting of 12 parts
+        let replicatorLayerFat = CAReplicatorLayer()
+        
+        // Offset to put both replicator layers into the vertical center
+        let offsetY = (rect.size.height - rect.size.width) / 2
+        
+        if rect.size.width > rect.size.height {
+            replicatorLayerFat.frame = rect
+        } else {
+            replicatorLayerFat.frame =  CGRect(x: rect.minX, y: offsetY, width: rect.width, height: rect.width)
+        }
+        
+        
+        replicatorLayerFat.instanceCount = 12
+        
+        // 12 instances (360deg / 12) -> angle for each part
+        let angleFat = Float(Double.pi * 2.0) / 12
+        
+        // Add correct angle for each part to replicatorLayer
+        replicatorLayerFat.instanceTransform = CATransform3DMakeRotation(CGFloat(angleFat), 0.0, 0.0, 1.0)
+        self.layer.addSublayer(replicatorLayerFat)
         
         // Create layer that will be replicated 12 times to form a complete circle
         let instanceLayerFat = CALayer()
@@ -84,81 +84,81 @@ class TimerView: UIView {
         hourHandLayer.position = CGPoint(x: rect.size.width / 2, y: rect.size.height / 2)
         
         // Set size of all hands
-               if rect.size.width > rect.size.height {
-                hourHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.height / 2) + 0.5 )
-               } else {
-                hourHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.width / 2) + 0.5)
-               }
-               
-               // Add hour hand layers to as sublayers
-               circleLayer.addSublayer(hourHandLayer)
+        if rect.size.width > rect.size.height {
+            hourHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.height / 2) + 0.5 )
+        } else {
+            hourHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.width / 2) + 0.5)
+        }
+        
+        // Add hour hand layers to as sublayers
+        circleLayer.addSublayer(hourHandLayer)
         
         
         // Get current hours, minutes and seconds
-             let date = Date()
-             let calendar = Calendar.current
-             let hours = calendar.component(.hour, from: date)
-             let minutes = calendar.component(.minute, from: date)
-             let seconds = calendar.component(.second, from: date)
-
+        let date = Date()
+        let calendar = Calendar.current
+        let hours = calendar.component(.hour, from: date)
+        let minutes = calendar.component(.minute, from: date)
+        let seconds = calendar.component(.second, from: date)
+        
         
         // Calculate the angles for the each hand
-               let hourAngle = CGFloat(0 * (360 / 12)) + CGFloat(0) * (1.0 / 60) * (360 / 12)
-               let minuteAngle = CGFloat(minutes * (360 / 60))
-               let secondsAngle = CGFloat(seconds * (360 / 60))
+        let hourAngle = CGFloat(0 * (360 / 12)) + CGFloat(0) * (1.0 / 60) * (360 / 12)
+        let minuteAngle = CGFloat(minutes * (360 / 60))
+        let secondsAngle = CGFloat(seconds * (360 / 60))
         
         hourHandLayer.transform = CATransform3DMakeRotation(.pi, 0, 0, 1)
-
-               
-               // Transform the hands according to the calculated angles
-//               hourHandLayer.transform = CATransform3DMakeRotation(hourAngle / CGFloat(180 * Double.pi), 0, 0, 1)
-//               minuteHandLayer.transform = CATransform3DMakeRotation(minuteAngle / CGFloat(180 * Double.pi), 0, 0, 1)
-//               secondHandLayer.transform = CATransform3DMakeRotation(secondsAngle / CGFloat(180 * Double.pi), 0, 0, 1)
         
-       
         
-//        // Create animation for minutes hand
-//        let minutesHandAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-//        // Runs forever
-//        minutesHandAnimation.repeatCount = Float.infinity
-//        // One animation (360deg) takes 60 minutes (1 hour)
-//        minutesHandAnimation.duration = 60 * 60
-//        minutesHandAnimation.isRemovedOnCompletion = false
-//        minutesHandAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-//        // From start angle (according to calculated angle from time) plus 360deg which equals 1 rotation
-//        minutesHandAnimation.fromValue = (minuteAngle + 180) * CGFloat(Double.pi / 180)
-//        minutesHandAnimation.byValue = 2 * Double.pi
-//        minuteHandLayer.add(minutesHandAnimation, forKey: "minutesHandAnimation")
-//
-//        // Create animation for hours hand
-//        let hoursHandAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-//        // Runs forever
-//        hoursHandAnimation.repeatCount = Float.infinity
-//        // One animation (360deg) takes 12 hours
-//        hoursHandAnimation.duration = CFTimeInterval(60 * 60 * 12);
-//        hoursHandAnimation.isRemovedOnCompletion = false
-//        hoursHandAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-//        // From start angle (according to calculated angle from time) plus 360deg which equals 1 rotation
-//        hoursHandAnimation.fromValue = (hourAngle + 180)  * CGFloat(Double.pi / 180)
-//        hoursHandAnimation.byValue = 2 * Double.pi
-//        hourHandLayer.add(hoursHandAnimation, forKey: "hoursHandAnimation")
+        // Transform the hands according to the calculated angles
+        //               hourHandLayer.transform = CATransform3DMakeRotation(hourAngle / CGFloat(180 * Double.pi), 0, 0, 1)
+        //               minuteHandLayer.transform = CATransform3DMakeRotation(minuteAngle / CGFloat(180 * Double.pi), 0, 0, 1)
+        //               secondHandLayer.transform = CATransform3DMakeRotation(secondsAngle / CGFloat(180 * Double.pi), 0, 0, 1)
+        
+        
+        
+        //        // Create animation for minutes hand
+        //        let minutesHandAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        //        // Runs forever
+        //        minutesHandAnimation.repeatCount = Float.infinity
+        //        // One animation (360deg) takes 60 minutes (1 hour)
+        //        minutesHandAnimation.duration = 60 * 60
+        //        minutesHandAnimation.isRemovedOnCompletion = false
+        //        minutesHandAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        //        // From start angle (according to calculated angle from time) plus 360deg which equals 1 rotation
+        //        minutesHandAnimation.fromValue = (minuteAngle + 180) * CGFloat(Double.pi / 180)
+        //        minutesHandAnimation.byValue = 2 * Double.pi
+        //        minuteHandLayer.add(minutesHandAnimation, forKey: "minutesHandAnimation")
+        //
+        //        // Create animation for hours hand
+        //        let hoursHandAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+        //        // Runs forever
+        //        hoursHandAnimation.repeatCount = Float.infinity
+        //        // One animation (360deg) takes 12 hours
+        //        hoursHandAnimation.duration = CFTimeInterval(60 * 60 * 12);
+        //        hoursHandAnimation.isRemovedOnCompletion = false
+        //        hoursHandAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        //        // From start angle (according to calculated angle from time) plus 360deg which equals 1 rotation
+        //        hoursHandAnimation.fromValue = (hourAngle + 180)  * CGFloat(Double.pi / 180)
+        //        hoursHandAnimation.byValue = 2 * Double.pi
+        //        hourHandLayer.add(hoursHandAnimation, forKey: "hoursHandAnimation")
     }
     
     func startTimer(withValue:Int) {
-         // Create animation for seconds hand
-                // default repeat of  0
-//                secondsHandAnimation.repeatCount = 0
-                // One animation (360deg) takes 60 seconds
+        // Create animation for seconds hand
+        // default repeat of  0
+        //                secondsHandAnimation.repeatCount = 0
+        // One animation (360deg) takes 60 seconds
         
         
         secondsHandAnimation.duration = CFTimeInterval(withValue)
-                secondsHandAnimation.isRemovedOnCompletion = false
-                secondsHandAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-                // From start angle (according to calculated angle from time) plus 360deg which equals 1 rotation
-                secondsHandAnimation.fromValue = (CGFloat(withValue * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
-                secondsHandAnimation.toValue = (CGFloat(0 * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
-
-                secondsHandAnimation.byValue = 2 * Double.pi
+        secondsHandAnimation.isRemovedOnCompletion = false
+        secondsHandAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        // From start angle (according to calculated angle from time) plus 360deg which equals 1 rotation
+        secondsHandAnimation.fromValue = (CGFloat(withValue * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
+        secondsHandAnimation.toValue = (CGFloat(0 * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
+        
+        secondsHandAnimation.byValue = 2 * Double.pi
         //        secondsHandAnimation
         hourHandLayer.add(secondsHandAnimation, forKey: secondsHandAnimation.keyPath)
     }

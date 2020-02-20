@@ -21,10 +21,10 @@ class TimerViewController: UIViewController {
     var pickerView: PickerView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         startPauseButton.isEnabled = false
-
+        
         pickerView = PickerView.instanceFromNib()
         pickerView.center = view.center
         pickerView.delegate = self
@@ -55,7 +55,7 @@ class TimerViewController: UIViewController {
         isRunning = false
         timerValueInSeconds = 0
         startPauseButton.isEnabled = false
-        timerValueLabel.text = "\(timerValueInSeconds/60) : \(timerValueInSeconds%60)"
+        timerValueLabel.text = "\(String(format: "%02d", timerValueInSeconds/60)) : \(String(format: "%02d", timerValueInSeconds%60))"
         stopCountDown()
         timerView.stopAnimation()
         startPauseButton.setTitle("Start", for: .normal)
@@ -63,9 +63,8 @@ class TimerViewController: UIViewController {
     
     @objc private func onTimerFire(timer:Timer!) {
         timerValueInSeconds -= 1
-        timerValueLabel.text = "\(timerValueInSeconds/60) : \(timerValueInSeconds%60)"
+        timerValueLabel.text = "\(String(format: "%02d", timerValueInSeconds/60)) : \(String(format: "%02d", timerValueInSeconds%60))"
         if timerValueInSeconds <= 0 {
-//            stopCountDown()
             resetTimerAction(resetButton as Any)
         }
     }
@@ -85,7 +84,7 @@ extension TimerViewController: PickerViewDelegate {
     func didSelect(min: Int, sec: Int) {
         timerValueInSeconds = min * 60 + sec
         startPauseButton.isEnabled = timerValueInSeconds > 0
-        timerValueLabel.text = "\(min) : \(sec)"
+        timerValueLabel.text = "\(String(format: "%02d", min)) : \(String(format: "%02d", sec))"
         timerView.setHoursHand(with: sec)
     }
 }
