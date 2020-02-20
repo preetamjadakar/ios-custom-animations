@@ -8,6 +8,9 @@
 
 import UIKit
 
+enum TimerState {
+    case reset, running, paused, resumed
+}
 class TimerView: UIView {
     var shapeLayer: CAShapeLayer!
     var circlePath: UIBezierPath!
