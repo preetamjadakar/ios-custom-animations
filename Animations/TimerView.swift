@@ -13,6 +13,8 @@ enum TimerState {
 }
 class TimerView: UIView {
     var shapeLayer: CAShapeLayer!
+    var progressiveShapeLayer: CAShapeLayer!
+
     var circlePath: UIBezierPath!
     
     var circleLayer: CALayer!
@@ -22,13 +24,15 @@ class TimerView: UIView {
 
     var minutesHandAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
 
+    let progressiveStrokeAnimation = CABasicAnimation(keyPath: "strokeStart")
+
     override func draw(_ rect: CGRect) {
         // Drawing code
         // Take shorter of both sides
         if rect.size.width > rect.size.height {
-            circlePath = UIBezierPath(arcCenter: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: rect.size.height / 2 - 3, startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+            circlePath = UIBezierPath(arcCenter: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: rect.size.height / 2 - 3, startAngle: CGFloat(Double.pi / 2), endAngle: -CGFloat(3/2 *  Double.pi), clockwise: false)
         } else {
-            circlePath = UIBezierPath(arcCenter: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: rect.size.width / 2 - 3, startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+            circlePath = UIBezierPath(arcCenter: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: rect.size.width / 2 - 3, startAngle: CGFloat(Double.pi / 2), endAngle: -CGFloat(3/2 *  Double.pi), clockwise: false)
         }
         
         
@@ -93,6 +97,8 @@ class TimerView: UIView {
             minutesHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.width / 2) + 3.5)
         }
         
+        //add progressive shape layer
+        addProgressiveLayer()
         // Add hour hand layers to as sublayers
         circleLayer.addSublayer(minutesHandLayer)
         addTipLayer(rect: rect)
@@ -157,47 +163,56 @@ class TimerView: UIView {
         
         let minuteAngle = CGFloat(withValue/60 * (360 / 60))
 
+        let fromValue = (minuteAngle + 180) * CGFloat(Double.pi / 180)
+        let toValue =  (0 + 180) * CGFloat(Double.pi / 180)
         minutesHandAnimation.duration = CFTimeInterval(withValue)
         minutesHandAnimation.isRemovedOnCompletion = false
         minutesHandAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         // From start angle (according to calculated angle from time) plus 360deg which equals 1 rotation
-        minutesHandAnimation.fromValue = (minuteAngle + 180) * CGFloat(Double.pi / 180)
-        minutesHandAnimation.toValue = (0 + 180) * CGFloat(Double.pi / 180)
+        minutesHandAnimation.fromValue = fromValue
+        minutesHandAnimation.toValue = toValue
         
         minutesHandAnimation.byValue = 2 * Double.pi
         //        secondsHandAnimation
         minutesHandLayer.add(minutesHandAnimation, forKey: minutesHandAnimation.keyPath)
         
+        setProgressiveLayerPath(angle: minuteAngle)
         
-        /*
-        secondsHandAnimation.duration = CFTimeInterval(withValue)
-        secondsHandAnimation.isRemovedOnCompletion = false
-        secondsHandAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        // From start angle (according to calculated angle from time) plus 360deg which equals 1 rotation
-        secondsHandAnimation.fromValue = (CGFloat(withValue * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
-        secondsHandAnimation.toValue = (CGFloat(0 * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
+        progressiveStrokeAnimation.fromValue = 0
+        progressiveStrokeAnimation.toValue = 1
+
+        progressiveStrokeAnimation.duration = CFTimeInterval(withValue)
+        progressiveStrokeAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear) // animation curve is Ease Out
+        progressiveStrokeAnimation.fillMode = CAMediaTimingFillMode.both // keep to value after finishing
+        progressiveStrokeAnimation.isRemovedOnCompletion = false
+        progressiveShapeLayer.add(progressiveStrokeAnimation, forKey: progressiveStrokeAnimation.keyPath)
         
-        secondsHandAnimation.byValue = 2 * Double.pi
-        //        secondsHandAnimation
-        minutesHandLayer.add(secondsHandAnimation, forKey: secondsHandAnimation.keyPath)
- */
     }
     
     func stopAnimation() {
         //        minutesHandLayer.removeAnimation(forKey: secondsHandAnimation.keyPath!)
         minutesHandLayer.removeAnimation(forKey: minutesHandAnimation.keyPath!)
         minutesHandLayer.transform = CATransform3DMakeRotation(.pi, 0, 0, 1)
+        
+        progressiveShapeLayer.path = nil
+        progressiveShapeLayer.removeAnimation(forKey: progressiveStrokeAnimation.keyPath!)
+
     }
     
     func setHoursHand(with value: CGFloat) {
 //        let fromAngle = (CGFloat(value * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
         let fromAngle = (CGFloat(value/60 * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
         minutesHandLayer.transform = CATransform3DMakeRotation(fromAngle, 0, 0, 1)
+        
+        let minuteAngle = CGFloat(value/60 * (360 / 60))
+
+        setProgressiveLayerPath(angle: minuteAngle)
     }
     func pauseTimer() {
         minutesHandLayer.transform = minutesHandLayer.presentation()!.transform
 //        minutesHandLayer.removeAnimation(forKey: secondsHandAnimation.keyPath!)
         minutesHandLayer.removeAnimation(forKey: minutesHandAnimation.keyPath!)
+        progressiveShapeLayer.removeAnimation(forKey: progressiveStrokeAnimation.keyPath!)
     }
     
     func addTipLayer(rect: CGRect) {
@@ -214,4 +229,29 @@ class TimerView: UIView {
             tipLayer.bounds = CGRect(x: 0, y: 0, width: tipLength, height: tipLength )
         minutesHandLayer.addSublayer(tipLayer)
     }
+    func addProgressiveLayer() {
+         progressiveShapeLayer = CAShapeLayer()
+//               progressiveShapeLayer.path = circlePath.cgPath
+               
+               // Set fill color to clear
+               progressiveShapeLayer.fillColor = UIColor.clear.cgColor
+               // Set the border color to black
+               progressiveShapeLayer.strokeColor = UIColor.green.cgColor
+               // Set width of border
+               progressiveShapeLayer.lineWidth = 8.0
+               
+        self.layer.addSublayer(progressiveShapeLayer)
+    }
+    
+    func setProgressiveLayerPath(angle: CGFloat) {
+        let progressiveStart = CGFloat((angle - 90) * .pi / 180)
+        let progressivePath = UIBezierPath(arcCenter: CGPoint(x: self.bounds.size.width / 2, y: self.bounds.size.height / 2), radius: self.bounds.size.width / 2 - 3, startAngle: progressiveStart, endAngle: -CGFloat(Double.pi/2), clockwise: false)
+        progressiveShapeLayer.path = progressivePath.cgPath
+
+    }
+    
+    // MARK: - Animations
+       func updateAnimation() {
+           
+       }
 }
