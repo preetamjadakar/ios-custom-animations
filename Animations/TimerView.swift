@@ -168,6 +168,10 @@ class TimerView: UIView {
         hourHandLayer.transform = CATransform3DMakeRotation(.pi, 0, 0, 1)
     }
     
+    func setHoursHand(with value: Int) {
+        let fromAngle = (CGFloat(value * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
+        hourHandLayer.transform = CATransform3DMakeRotation(fromAngle, 0, 0, 1)
+    }
     func pauseTimer() {
         hourHandLayer.transform = hourHandLayer.presentation()!.transform
         hourHandLayer.removeAnimation(forKey: secondsHandAnimation.keyPath!)

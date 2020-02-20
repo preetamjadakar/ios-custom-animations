@@ -354,6 +354,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="NL6-ru-OaQ"/>
                     <connections>
+                        <outlet property="resetButton" destination="Kra-9J-dBE" id="HXd-o1-Mvq"/>
+                        <outlet property="startPauseButton" destination="eBP-6F-MPQ" id="MZQ-m2-D3D"/>
                         <outlet property="timerValueLabel" destination="guz-1F-GTV" id="K1r-J4-BHQ"/>
                         <outlet property="timerView" destination="6SM-OG-wsT" id="opZ-dz-7YN"/>
                     </connections>
