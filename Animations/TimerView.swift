@@ -26,9 +26,9 @@ class TimerView: UIView {
         // Drawing code
         // Take shorter of both sides
         if rect.size.width > rect.size.height {
-            circlePath = UIBezierPath(arcCenter: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: rect.size.height / 2, startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+            circlePath = UIBezierPath(arcCenter: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: rect.size.height / 2 - 3, startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
         } else {
-            circlePath = UIBezierPath(arcCenter: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: rect.size.width / 2, startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
+            circlePath = UIBezierPath(arcCenter: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: rect.size.width / 2 - 3, startAngle: CGFloat(0), endAngle: CGFloat(Double.pi * 2), clockwise: true)
         }
         
         
@@ -47,7 +47,6 @@ class TimerView: UIView {
         // Instantiate circleLayer and put it into the main rect
         circleLayer = CALayer()
         circleLayer.frame = rect
-        self.layer.addSublayer(circleLayer)
         
         // Create replicatorLayer to make a complete circle consisting of 12 parts
         let replicatorLayerFat = CAReplicatorLayer()
@@ -83,20 +82,22 @@ class TimerView: UIView {
         minutesHandLayer = CALayer()
         minutesHandLayer.backgroundColor = UIColor.black.cgColor
         // Puts the center of the rectangle in the center of the clock
-        minutesHandLayer.anchorPoint = CGPoint(x: 0.5, y: 0.2)
+        minutesHandLayer.anchorPoint = CGPoint(x: 0.5, y: 0.0)
         // Positions the hand in the middle of the clock
         minutesHandLayer.position = CGPoint(x: rect.size.width / 2, y: rect.size.height / 2)
         
-        // Set size of all hands
+        // Set size of minutes hands
         if rect.size.width > rect.size.height {
-            minutesHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.height / 2) + 0.5 )
+            minutesHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.height / 2) + 3.5 )
         } else {
-            minutesHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.width / 2) + 0.5)
+            minutesHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.width / 2) + 3.5)
         }
         
         // Add hour hand layers to as sublayers
         circleLayer.addSublayer(minutesHandLayer)
-        
+        addTipLayer(rect: rect)
+        self.layer.addSublayer(circleLayer)
+
         
         // Get current hours, minutes and seconds
         let date = Date()
@@ -197,5 +198,20 @@ class TimerView: UIView {
         minutesHandLayer.transform = minutesHandLayer.presentation()!.transform
 //        minutesHandLayer.removeAnimation(forKey: secondsHandAnimation.keyPath!)
         minutesHandLayer.removeAnimation(forKey: minutesHandAnimation.keyPath!)
+    }
+    
+    func addTipLayer(rect: CGRect) {
+        // Create and draw hour hand layer
+        let tipLength = 20
+        minutesHandLayer.layoutIfNeeded()
+        let tipLayer = CALayer()
+        tipLayer.backgroundColor = UIColor.red.cgColor
+        tipLayer.cornerRadius = CGFloat(tipLength / 2)
+        // Puts the center of the rectangle in the center of the clock
+        tipLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        // Positions the hand in the middle of the clock
+        tipLayer.position = CGPoint(x: 4, y: minutesHandLayer.bounds.height - CGFloat(tipLength / 2) + 4) // 8/2 = 4 is width of the circle line
+            tipLayer.bounds = CGRect(x: 0, y: 0, width: tipLength, height: tipLength )
+        minutesHandLayer.addSublayer(tipLayer)
     }
 }
