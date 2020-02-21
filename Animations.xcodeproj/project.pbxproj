@@ -30,6 +30,7 @@
 		847C23E723C4452900F6E502 /* TransitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C23E423C4452900F6E502 /* TransitionsViewController.swift */; };
 		848AA7EB23FFE3140073A3E4 /* RobotoMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848AA7EA23FFE3130073A3E4 /* RobotoMono-Light.ttf */; };
 		848AA7ED23FFE3930073A3E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848AA7EC23FFE3930073A3E4 /* Constants.swift */; };
+		848AA7EF23FFF4400073A3E4 /* PJButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848AA7EE23FFF4400073A3E4 /* PJButton.swift */; };
 		84A088C223E825B200683A7A /* SecondsCountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A088C123E825B200683A7A /* SecondsCountDownView.swift */; };
 		84A088C423E8275D00683A7A /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A088C323E8275D00683A7A /* ClientViewController.swift */; };
 		84A088C623E82C8400683A7A /* NBMaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A088C523E82C8400683A7A /* NBMaterialButton.swift */; };
@@ -88,6 +89,7 @@
 		847C23E423C4452900F6E502 /* TransitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionsViewController.swift; sourceTree = "<group>"; };
 		848AA7EA23FFE3130073A3E4 /* RobotoMono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Light.ttf"; sourceTree = "<group>"; };
 		848AA7EC23FFE3930073A3E4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		848AA7EE23FFF4400073A3E4 /* PJButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJButton.swift; sourceTree = "<group>"; };
 		84A088C123E825B200683A7A /* SecondsCountDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondsCountDownView.swift; sourceTree = "<group>"; };
 		84A088C323E8275D00683A7A /* ClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
 		84A088C523E82C8400683A7A /* NBMaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBMaterialButton.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 				84E8492623FD2F2000890D22 /* TimerViewController.swift */,
 				84E8492A23FE655800890D22 /* PickerView.xib */,
 				84E8492C23FE65A900890D22 /* PickerView.swift */,
+				848AA7EE23FFF4400073A3E4 /* PJButton.swift */,
 				847C23B123C308E200F6E502 /* Main.storyboard */,
 				84E6DE1523CAEC5B00823743 /* DestinationStoryboard.storyboard */,
 				847C23B723C308E500F6E502 /* Assets.xcassets */,
@@ -501,6 +504,7 @@
 				847C23B023C308E200F6E502 /* ViewController.swift in Sources */,
 				84E8492923FD58FD00890D22 /* TimerView.swift in Sources */,
 				84E6DE1A23D042C100823743 /* TransformViewController.swift in Sources */,
+				848AA7EF23FFF4400073A3E4 /* PJButton.swift in Sources */,
 				84A088C223E825B200683A7A /* SecondsCountDownView.swift in Sources */,
 				84D9A25E23DEA69A00E5CF4A /* ViewAnimatorViewController.swift in Sources */,
 				84A088C823E82C9600683A7A /* NBMaterialTextField.swift in Sources */,

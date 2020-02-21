@@ -330,15 +330,21 @@
                                     <outletCollection property="gestureRecognizers" destination="bhe-4T-qgW" appends="YES" id="l9G-YL-fPi"/>
                                 </connections>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBP-6F-MPQ">
-                                <rect key="frame" x="293" y="744.5" width="34" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBP-6F-MPQ" customClass="PJButton" customModule="Animations" customModuleProvider="target">
+                                <rect key="frame" x="277" y="744.5" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="eBV-uj-Jg6"/>
+                                </constraints>
                                 <state key="normal" title="Start"/>
                                 <connections>
                                     <action selector="startOrPauseAnimationAction:" destination="3aK-Yn-nCr" eventType="touchUpInside" id="uSH-Ia-GI7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kra-9J-dBE">
-                                <rect key="frame" x="87" y="744.5" width="39" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kra-9J-dBE" customClass="PJButton" customModule="Animations" customModuleProvider="target">
+                                <rect key="frame" x="87" y="744.5" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="0E6-6b-XtK"/>
+                                </constraints>
                                 <state key="normal" title="Reset"/>
                                 <connections>
                                     <action selector="resetTimerAction:" destination="3aK-Yn-nCr" eventType="touchUpInside" id="STZ-u7-dxm"/>
@@ -352,7 +358,7 @@
                             <constraint firstItem="Kra-9J-dBE" firstAttribute="top" secondItem="eBP-6F-MPQ" secondAttribute="top" id="cDd-AN-bAa"/>
                             <constraint firstItem="Kra-9J-dBE" firstAttribute="leading" secondItem="FcV-3T-4kv" secondAttribute="leading" constant="87" id="dZM-3m-Lv2"/>
                             <constraint firstItem="6SM-OG-wsT" firstAttribute="centerX" secondItem="zl3-iI-4i0" secondAttribute="centerX" id="mOY-Ki-Jkd"/>
-                            <constraint firstItem="FcV-3T-4kv" firstAttribute="trailing" secondItem="eBP-6F-MPQ" secondAttribute="trailing" constant="87" id="otK-WZ-2h0"/>
+                            <constraint firstItem="FcV-3T-4kv" firstAttribute="trailing" secondItem="eBP-6F-MPQ" secondAttribute="trailing" constant="72" id="otK-WZ-2h0"/>
                             <constraint firstItem="eBP-6F-MPQ" firstAttribute="top" secondItem="guz-1F-GTV" secondAttribute="bottom" constant="84" id="uU7-fF-FBN"/>
                             <constraint firstItem="guz-1F-GTV" firstAttribute="top" secondItem="6SM-OG-wsT" secondAttribute="bottom" constant="33" id="yDL-0V-0JV"/>
                         </constraints>
