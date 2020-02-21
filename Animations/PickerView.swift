@@ -20,13 +20,9 @@ class PickerView: UIView {
         return UINib(nibName: "PickerView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! PickerView
     }
     
-    override class func awakeFromNib() {
-        super.awakeFromNib()
-        //        let minLabel = UILabel()
-        //        minLabel.text = "min."
-        //        let secLabel = UILabel()
-        //        secLabel.text = "sec."
-        //        timePicker.setPickerLabels(labels: [0 : minLabel, 1: secLabel], containedView: self)
+    override func draw(_ rect: CGRect) {
+        super.draw(rect)
+        setPickerLabels()
     }
     
     @IBAction func doneButtonAction(_ sender: Any) {
@@ -41,6 +37,38 @@ class PickerView: UIView {
     func setTimePicker(for min:Int, sec: Int) {
         timePicker.selectRow(min, inComponent: 0, animated: true)
         timePicker.selectRow(sec, inComponent: 1, animated: true)
+    }
+    
+    
+    func setPickerLabels() { // [component number:label]
+        let minLabel = UILabel()
+        
+        minLabel.text = "min."
+        let secLabel = UILabel()
+        secLabel.text = "sec."
+        
+        let labels = [0:minLabel, 1:secLabel]
+        let fontSize:CGFloat = 20
+        let labelWidth:CGFloat = timePicker.bounds.width / CGFloat(timePicker.numberOfComponents)
+        let x:CGFloat = timePicker.frame.origin.x
+        let y:CGFloat = (timePicker.frame.size.height / 2) - (fontSize / 2)
+        
+        for i in 0...timePicker.numberOfComponents {
+            
+            if let label = labels[i] {
+                
+                if timePicker.subviews.contains(label) {
+                    label.removeFromSuperview()
+                }
+                
+                label.frame = CGRect(x: x + labelWidth * CGFloat(i) - 10, y: y, width: labelWidth, height: fontSize)
+                label.font = UIFont.boldSystemFont(ofSize: fontSize)
+                label.backgroundColor = .clear
+                label.textAlignment = .right
+                
+                timePicker.addSubview(label)
+            }
+        }
     }
 }
 
@@ -57,32 +85,5 @@ extension PickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(row)"
     }
-}
-
-extension UIPickerView {
     
-    func setPickerLabels(labels: [Int:UILabel], containedView: UIView) { // [component number:label]
-        
-        let fontSize:CGFloat = 20
-        let labelWidth:CGFloat = containedView.bounds.width / CGFloat(self.numberOfComponents)
-        let x:CGFloat = self.frame.origin.x
-        let y:CGFloat = (self.frame.size.height / 2) - (fontSize / 2)
-        
-        for i in 0...self.numberOfComponents {
-            
-            if let label = labels[i] {
-                
-                if self.subviews.contains(label) {
-                    label.removeFromSuperview()
-                }
-                
-                label.frame = CGRect(x: x + labelWidth * CGFloat(i), y: y, width: labelWidth, height: fontSize)
-                label.font = UIFont.boldSystemFont(ofSize: fontSize)
-                label.backgroundColor = .clear
-                label.textAlignment = NSTextAlignment.center
-                
-                self.addSubview(label)
-            }
-        }
-    }
 }

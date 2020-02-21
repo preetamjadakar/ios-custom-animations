@@ -120,12 +120,12 @@ class TimerViewController: UIViewController {
             return
         }
         pickerView.isHidden = false
-        guard let timeComponents = timerValueLabel.text?.components(separatedBy: " : ") else { return }
+        guard let timeComponents = timerValueLabel.text?.components(separatedBy: ":") else { return }
         pickerView.setTimePicker(for: Int(timeComponents[0]) ?? 0, sec: Int(timeComponents[1])  ?? 0)
     }
     
     private func setTimerLabelValue(with min:Int, sec:Int) {
-        timerValueLabel.text = "\(String(format: "%02d", min)) : \(String(format: "%02d", sec))"
+        timerValueLabel.text = "\(String(format: "%02d", min)):\(String(format: "%02d", sec))"
     }
 }
 

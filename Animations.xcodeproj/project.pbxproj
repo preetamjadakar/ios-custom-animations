@@ -32,6 +32,8 @@
 		84A088C423E8275D00683A7A /* ClientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A088C323E8275D00683A7A /* ClientViewController.swift */; };
 		84A088C623E82C8400683A7A /* NBMaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A088C523E82C8400683A7A /* NBMaterialButton.swift */; };
 		84A088C823E82C9600683A7A /* NBMaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A088C723E82C9600683A7A /* NBMaterialTextField.swift */; };
+		84AE008F23FFD15300E1E905 /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84AE008D23FFD15300E1E905 /* RobotoMono-Regular.ttf */; };
+		84AE009023FFD15300E1E905 /* RobotoMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84AE008E23FFD15300E1E905 /* RobotoMono-Medium.ttf */; };
 		84D9A25E23DEA69A00E5CF4A /* ViewAnimatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9A25D23DEA69A00E5CF4A /* ViewAnimatorViewController.swift */; };
 		84E6DE1423CAEBFE00823743 /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E6DE1323CAEBFE00823743 /* DestinationViewController.swift */; };
 		84E6DE1623CAEC5B00823743 /* DestinationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E6DE1523CAEC5B00823743 /* DestinationStoryboard.storyboard */; };
@@ -86,6 +88,8 @@
 		84A088C323E8275D00683A7A /* ClientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientViewController.swift; sourceTree = "<group>"; };
 		84A088C523E82C8400683A7A /* NBMaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBMaterialButton.swift; sourceTree = "<group>"; };
 		84A088C723E82C9600683A7A /* NBMaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBMaterialTextField.swift; sourceTree = "<group>"; };
+		84AE008D23FFD15300E1E905 /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
+		84AE008E23FFD15300E1E905 /* RobotoMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Medium.ttf"; sourceTree = "<group>"; };
 		84D9A25D23DEA69A00E5CF4A /* ViewAnimatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnimatorViewController.swift; sourceTree = "<group>"; };
 		84E6DE1323CAEBFE00823743 /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		84E6DE1523CAEC5B00823743 /* DestinationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DestinationStoryboard.storyboard; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 				847C23B923C308E500F6E502 /* LaunchScreen.storyboard */,
 				847C23BC23C308E500F6E502 /* Info.plist */,
 				847C23B423C308E200F6E502 /* Animations.xcdatamodeld */,
+				84AE009123FFD15B00E1E905 /* Fonts */,
 			);
 			path = Animations;
 			sourceTree = "<group>";
@@ -211,6 +216,15 @@
 				847C23D223C308E600F6E502 /* Info.plist */,
 			);
 			path = AnimationsUITests;
+			sourceTree = "<group>";
+		};
+		84AE009123FFD15B00E1E905 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				84AE008E23FFD15300E1E905 /* RobotoMono-Medium.ttf */,
+				84AE008D23FFD15300E1E905 /* RobotoMono-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		DB1DAB83A805DB5AF1DCFEF8 /* Pods */ = {
@@ -337,9 +351,11 @@
 			files = (
 				84E8492B23FE655800890D22 /* PickerView.xib in Resources */,
 				84E6DE1623CAEC5B00823743 /* DestinationStoryboard.storyboard in Resources */,
+				84AE009023FFD15300E1E905 /* RobotoMono-Medium.ttf in Resources */,
 				847C23BB23C308E500F6E502 /* LaunchScreen.storyboard in Resources */,
 				847C23B823C308E500F6E502 /* Assets.xcassets in Resources */,
 				847C23B323C308E200F6E502 /* Main.storyboard in Resources */,
+				84AE008F23FFD15300E1E905 /* RobotoMono-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

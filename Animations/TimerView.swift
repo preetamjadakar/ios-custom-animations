@@ -27,6 +27,7 @@ class TimerView: UIView {
     let progressiveStrokeAnimation = CABasicAnimation(keyPath: "strokeStart")
 
     override func draw(_ rect: CGRect) {
+        super.draw(rect)
         // Drawing code
         // Take shorter of both sides
         if rect.size.width > rect.size.height {
@@ -249,9 +250,4 @@ class TimerView: UIView {
         progressiveShapeLayer.path = progressivePath.cgPath
 
     }
-    
-    // MARK: - Animations
-       func updateAnimation() {
-           
-       }
 }

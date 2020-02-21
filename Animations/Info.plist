@@ -61,5 +61,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Robot Mono Medium</string>
+		<string>Robot Mono Regular</string>
+	</array>
 </dict>
 </plist>
