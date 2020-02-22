@@ -61,6 +61,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="doneButton" destination="QnD-Ru-Dwf" id="1X7-iy-CVH"/>
                 <outlet property="timePicker" destination="mYD-rE-U6G" id="sy6-HH-zl8"/>
             </connections>
             <point key="canvasLocation" x="108.69565217391305" y="16.071428571428569"/>

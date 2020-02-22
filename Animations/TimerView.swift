@@ -19,11 +19,8 @@ class TimerView: UIView {
     
     var circleLayer: CALayer!
     var minutesHandLayer: CALayer!
-    
-    var secondsHandAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
 
     var minutesHandAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-
     let progressiveStrokeAnimation = CABasicAnimation(keyPath: "strokeStart")
 
     override func draw(_ rect: CGRect) {
@@ -35,7 +32,6 @@ class TimerView: UIView {
         } else {
             circlePath = UIBezierPath(arcCenter: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: rect.size.width / 2 - 3, startAngle: CGFloat(Double.pi / 2), endAngle: -CGFloat(3/2 *  Double.pi), clockwise: false)
         }
-        
         
         shapeLayer = CAShapeLayer()
         shapeLayer.path = circlePath.cgPath
@@ -64,7 +60,6 @@ class TimerView: UIView {
         } else {
             replicatorLayerFat.frame =  CGRect(x: rect.minX, y: offsetY, width: rect.width, height: rect.width)
         }
-        
         
         replicatorLayerFat.instanceCount = 12
         
@@ -105,63 +100,11 @@ class TimerView: UIView {
         addTipLayer(rect: rect)
         self.layer.addSublayer(circleLayer)
 
-        
-        // Get current hours, minutes and seconds
-        let date = Date()
-        let calendar = Calendar.current
-        let hours = calendar.component(.hour, from: date)
-        let minutes = calendar.component(.minute, from: date)
-        let seconds = calendar.component(.second, from: date)
-        
-        
-        // Calculate the angles for the each hand
-        let hourAngle = CGFloat(hours * (360 / 12)) + CGFloat(0) * (1.0 / 60) * (360 / 12)
-        let minuteAngle = CGFloat(minutes * (360 / 60))
-        let secondsAngle = CGFloat(seconds * (360 / 60))
-        
         minutesHandLayer.transform = CATransform3DMakeRotation(.pi, 0, 0, 1)
-        
-        
-        // Transform the hands according to the calculated angles
-        //               hourHandLayer.transform = CATransform3DMakeRotation(hourAngle / CGFloat(180 * Double.pi), 0, 0, 1)
-        //               minuteHandLayer.transform = CATransform3DMakeRotation(minuteAngle / CGFloat(180 * Double.pi), 0, 0, 1)
-        //               secondHandLayer.transform = CATransform3DMakeRotation(secondsAngle / CGFloat(180 * Double.pi), 0, 0, 1)
-        
-        
-        
-        //        // Create animation for minutes hand
-        //        let minutesHandAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-        //        // Runs forever
-        //        minutesHandAnimation.repeatCount = Float.infinity
-        //        // One animation (360deg) takes 60 minutes (1 hour)
-        //        minutesHandAnimation.duration = 60 * 60
-        //        minutesHandAnimation.isRemovedOnCompletion = false
-        //        minutesHandAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        //        // From start angle (according to calculated angle from time) plus 360deg which equals 1 rotation
-        //        minutesHandAnimation.fromValue = (minuteAngle + 180) * CGFloat(Double.pi / 180)
-        //        minutesHandAnimation.byValue = 2 * Double.pi
-        //        minuteHandLayer.add(minutesHandAnimation, forKey: "minutesHandAnimation")
-        //
-        //        // Create animation for hours hand
-        //        let hoursHandAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-        //        // Runs forever
-        //        hoursHandAnimation.repeatCount = Float.infinity
-        //        // One animation (360deg) takes 12 hours
-        //        hoursHandAnimation.duration = CFTimeInterval(60 * 60 * 12);
-        //        hoursHandAnimation.isRemovedOnCompletion = false
-        //        hoursHandAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        //        // From start angle (according to calculated angle from time) plus 360deg which equals 1 rotation
-        //        hoursHandAnimation.fromValue = (hourAngle + 180)  * CGFloat(Double.pi / 180)
-        //        hoursHandAnimation.byValue = 2 * Double.pi
-        //        hourHandLayer.add(hoursHandAnimation, forKey: "hoursHandAnimation")
     }
     
     func startTimer(withValue:CGFloat) {
-        // Create animation for seconds hand
-        // default repeat of  0
-        //                secondsHandAnimation.repeatCount = 0
-        // One animation (360deg) takes 60 seconds
-        
+        // Create animation for minutes hand
         let minuteAngle = CGFloat(withValue/60 * (360 / 60))
 
         let fromValue = (minuteAngle + 180) * CGFloat(Double.pi / 180)
@@ -187,21 +130,17 @@ class TimerView: UIView {
         progressiveStrokeAnimation.fillMode = CAMediaTimingFillMode.both // keep to value after finishing
         progressiveStrokeAnimation.isRemovedOnCompletion = false
         progressiveShapeLayer.add(progressiveStrokeAnimation, forKey: progressiveStrokeAnimation.keyPath)
-        
     }
     
     func stopAnimation() {
-        //        minutesHandLayer.removeAnimation(forKey: secondsHandAnimation.keyPath!)
         minutesHandLayer.removeAnimation(forKey: minutesHandAnimation.keyPath!)
         minutesHandLayer.transform = CATransform3DMakeRotation(.pi, 0, 0, 1)
         
         progressiveShapeLayer.path = nil
         progressiveShapeLayer.removeAnimation(forKey: progressiveStrokeAnimation.keyPath!)
-
     }
     
     func setHoursHand(with value: CGFloat) {
-//        let fromAngle = (CGFloat(value * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
         let fromAngle = (CGFloat(value/60 * (360 / 60)) + 180) * CGFloat(Double.pi / 180)
         minutesHandLayer.transform = CATransform3DMakeRotation(fromAngle, 0, 0, 1)
         
@@ -211,7 +150,6 @@ class TimerView: UIView {
     }
     func pauseTimer() {
         minutesHandLayer.transform = minutesHandLayer.presentation()!.transform
-//        minutesHandLayer.removeAnimation(forKey: secondsHandAnimation.keyPath!)
         minutesHandLayer.removeAnimation(forKey: minutesHandAnimation.keyPath!)
         progressiveShapeLayer.removeAnimation(forKey: progressiveStrokeAnimation.keyPath!)
     }
@@ -230,17 +168,15 @@ class TimerView: UIView {
             tipLayer.bounds = CGRect(x: 0, y: 0, width: tipLength, height: tipLength )
         minutesHandLayer.addSublayer(tipLayer)
     }
+    
     func addProgressiveLayer() {
-         progressiveShapeLayer = CAShapeLayer()
-//               progressiveShapeLayer.path = circlePath.cgPath
-               
-               // Set fill color to clear
-               progressiveShapeLayer.fillColor = UIColor.clear.cgColor
-               // Set the border color to black
-               progressiveShapeLayer.strokeColor = UIColor.green.cgColor
-               // Set width of border
-               progressiveShapeLayer.lineWidth = 8.0
-               
+        progressiveShapeLayer = CAShapeLayer()
+        // Set fill color to clear
+        progressiveShapeLayer.fillColor = UIColor.clear.cgColor
+        // Set the border color to black
+        progressiveShapeLayer.strokeColor = UIColor.green.cgColor
+        // Set width of border
+        progressiveShapeLayer.lineWidth = 8.0
         self.layer.addSublayer(progressiveShapeLayer)
     }
     
@@ -248,6 +184,5 @@ class TimerView: UIView {
         let progressiveStart = CGFloat((angle - 90) * .pi / 180)
         let progressivePath = UIBezierPath(arcCenter: CGPoint(x: self.bounds.size.width / 2, y: self.bounds.size.height / 2), radius: self.bounds.size.width / 2 - 3, startAngle: progressiveStart, endAngle: -CGFloat(Double.pi/2), clockwise: false)
         progressiveShapeLayer.path = progressivePath.cgPath
-
     }
 }

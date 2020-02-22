@@ -15,7 +15,9 @@ class PickerView: UIView {
     
     @IBOutlet weak var timePicker: UIPickerView!
     
+    @IBOutlet weak var doneButton: PJButton!
     var delegate: PickerViewDelegate?
+    var presentationPoint = CGPoint()
     class func instanceFromNib() -> PickerView {
         return UINib(nibName: "PickerView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! PickerView
     }
@@ -23,22 +25,49 @@ class PickerView: UIView {
     override func draw(_ rect: CGRect) {
         super.draw(rect)
         setPickerLabels()
+        setupInitialScale()
+    }
+    
+    func setupInitialScale() {
+        transform = CGAffineTransform(scaleX: 0, y: 0)
+        center = presentationPoint
     }
     
     @IBAction func doneButtonAction(_ sender: Any) {
-        self.isHidden = true
+        animatePickerView(show: false)
         delegate?.didSelect(min: timePicker.selectedRow(inComponent: 0), sec: timePicker.selectedRow(inComponent: 1))
     }
     
     @IBAction func cancelButtonAction(_ sender: Any) {
-        self.isHidden = true
+        animatePickerView(show: false)
     }
     
     func setTimePicker(for min:Int, sec: Int) {
+        doneButton.isEnabled = !(min == 0 && sec == 0)
         timePicker.selectRow(min, inComponent: 0, animated: true)
         timePicker.selectRow(sec, inComponent: 1, animated: true)
     }
     
+    func animatePickerView(show: Bool) {
+        if show {
+            self.isHidden = false
+            UIView.animate(withDuration: 0.3, animations: {[weak self] in
+                guard let selfObj = self else { return }
+                selfObj.transform = .identity
+                selfObj.center = selfObj.superview!.center
+                }, completion: nil)
+            
+        } else {
+            //hide
+            UIView.animate(withDuration: 0.3, animations: {[weak self] in
+                guard let selfObj = self else { return }
+                selfObj.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+                selfObj.center = selfObj.presentationPoint
+                }, completion: {(finished) in
+                    self.isHidden = true
+            })
+        }
+    }
     
     func setPickerLabels() { // [component number:label]
         let minLabel = UILabel()
@@ -50,7 +79,7 @@ class PickerView: UIView {
         let labels = [0:minLabel, 1:secLabel]
         let fontSize:CGFloat = 20
         let labelWidth:CGFloat = timePicker.bounds.width / CGFloat(timePicker.numberOfComponents)
-        let x:CGFloat = timePicker.frame.origin.x
+        let x:CGFloat = timePicker.frame.origin.x + 4
         let y:CGFloat = (timePicker.frame.size.height / 2) - (fontSize / 2)
         
         for i in 0...timePicker.numberOfComponents {
@@ -61,8 +90,8 @@ class PickerView: UIView {
                     label.removeFromSuperview()
                 }
                 
-                label.frame = CGRect(x: x + labelWidth * CGFloat(i) - 10, y: y, width: labelWidth, height: fontSize)
-                label.font = UIFont.boldSystemFont(ofSize: fontSize)
+                label.frame = CGRect(x: x + labelWidth * CGFloat(i), y: y, width: labelWidth, height: fontSize)
+                label.font = fontStyle1
                 label.backgroundColor = .clear
                 label.textAlignment = .right
                 
@@ -82,8 +111,18 @@ extension PickerView: UIPickerViewDelegate, UIPickerViewDataSource {
         return 60
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(row)"
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let pickerLabel = UILabel()
+        pickerLabel.textColor = UIColor.black
+        pickerLabel.text = "\(row)"
+        pickerLabel.font = fontStyle3
+        pickerLabel.textAlignment = .center
+        return pickerLabel
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        let min = pickerView.selectedRow(inComponent: 0)
+        let sec = pickerView.selectedRow(inComponent: 1)
+        doneButton.isEnabled = !(min == 0 && sec == 0)
+    }
 }
