@@ -31,7 +31,7 @@ class TimerViewController: UIViewController, UNUserNotificationCenterDelegate {
     }
     
     var pickerView: PickerView!
-    
+    var gradientLayer: CAGradientLayer!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -56,9 +56,13 @@ class TimerViewController: UIViewController, UNUserNotificationCenterDelegate {
             }
         }
         UNUserNotificationCenter.current().delegate = self
-
+        createGradientLayer()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        createGradientLayer()
+    }
     @IBAction func startOrPauseAnimationAction(_ sender: Any) {
         switch timerState {
         case .reset, .resumed, .paused:
@@ -133,6 +137,15 @@ class TimerViewController: UIViewController, UNUserNotificationCenterDelegate {
     
     private func setTimerLabelValue(with min:Int, sec:Int) {
         timerValueLabel.text = "\(String(format: "%02d", min)):\(String(format: "%02d", sec))"
+    }
+
+    func createGradientLayer() {
+        gradientLayer = CAGradientLayer()
+     
+        gradientLayer.frame = view.bounds
+        gradientLayer.colors = [#colorLiteral(red: 0.2109377086, green: 0.6190578938, blue: 1, alpha: 1).cgColor, #colorLiteral(red: 0.2120122313, green: 0.08042155951, blue: 0.4985589981, alpha: 1).cgColor]
+     
+        view.layer.insertSublayer(gradientLayer, at: 0)
     }
     
     func triggerLocalNotification() {

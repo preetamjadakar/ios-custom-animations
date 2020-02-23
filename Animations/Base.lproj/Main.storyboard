@@ -314,24 +314,24 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SM-OG-wsT" customClass="TimerView" customModule="Animations" customModuleProvider="target">
                                 <rect key="frame" x="87" y="328" width="240" height="240"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="240" id="eob-zd-1gt"/>
                                     <constraint firstAttribute="width" constant="240" id="oZi-5Y-BZx"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guz-1F-GTV">
-                                <rect key="frame" x="139.5" y="601" width="135.5" height="59.5"/>
+                                <rect key="frame" x="132" y="601" width="150.5" height="66"/>
                                 <gestureRecognizers/>
-                                <fontDescription key="fontDescription" name="RobotoMono-Light" family="Roboto Mono" pointSize="45"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="RobotoMono-Light" family="Roboto Mono" pointSize="50"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="bhe-4T-qgW" appends="YES" id="l9G-YL-fPi"/>
                                 </connections>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBP-6F-MPQ" customClass="PJButton" customModule="Animations" customModuleProvider="target">
-                                <rect key="frame" x="277" y="744.5" width="65" height="30"/>
+                                <rect key="frame" x="277" y="751" width="65" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="eBV-uj-Jg6"/>
                                 </constraints>
@@ -341,7 +341,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kra-9J-dBE" customClass="PJButton" customModule="Animations" customModuleProvider="target">
-                                <rect key="frame" x="87" y="744.5" width="65" height="30"/>
+                                <rect key="frame" x="87" y="751" width="65" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="65" id="0E6-6b-XtK"/>
                                 </constraints>

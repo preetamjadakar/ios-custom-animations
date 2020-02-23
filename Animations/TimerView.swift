@@ -29,6 +29,7 @@ class TimerView: UIView {
         // Take shorter of both sides
         if rect.size.width > rect.size.height {
             circlePath = UIBezierPath(arcCenter: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: rect.size.height / 2 - 3, startAngle: CGFloat(Double.pi / 2), endAngle: -CGFloat(3/2 *  Double.pi), clockwise: false)
+            //TODO: adjust radius as per width
         } else {
             circlePath = UIBezierPath(arcCenter: CGPoint(x: rect.size.width / 2, y: rect.size.height / 2), radius: rect.size.width / 2 - 3, startAngle: CGFloat(Double.pi / 2), endAngle: -CGFloat(3/2 *  Double.pi), clockwise: false)
         }
@@ -37,12 +38,11 @@ class TimerView: UIView {
         shapeLayer.path = circlePath.cgPath
         
         // Set fill color to clear
-        shapeLayer.fillColor = UIColor.clear.cgColor
+        shapeLayer.fillColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0).cgColor
         // Set the border color to black
-        shapeLayer.strokeColor = UIColor.black.cgColor
+        shapeLayer.strokeColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).cgColor
         // Set width of border
-        shapeLayer.lineWidth = 8.0
-        
+        shapeLayer.lineWidth = clockLineWidth
         self.layer.addSublayer(shapeLayer)
         
         // Instantiate circleLayer and put it into the main rect
@@ -72,7 +72,7 @@ class TimerView: UIView {
         
         // Create layer that will be replicated 12 times to form a complete circle
         let instanceLayerFat = CALayer()
-        let layerWidthFat: CGFloat = 6.0
+        let layerWidthFat: CGFloat = minutesHandLineWidth
         let midXFat = rect.midX - layerWidthFat / 2.0
         instanceLayerFat.frame = CGRect(x: midXFat, y: 0.0, width: layerWidthFat, height: 20)
         instanceLayerFat.backgroundColor = UIColor.black.cgColor
@@ -80,7 +80,7 @@ class TimerView: UIView {
         
         // Create and draw hour hand layer
         minutesHandLayer = CALayer()
-        minutesHandLayer.backgroundColor = UIColor.black.cgColor
+        minutesHandLayer.backgroundColor = minutesHandColor.cgColor
         // Puts the center of the rectangle in the center of the clock
         minutesHandLayer.anchorPoint = CGPoint(x: 0.5, y: 0.0)
         // Positions the hand in the middle of the clock
@@ -88,9 +88,9 @@ class TimerView: UIView {
         
         // Set size of minutes hands
         if rect.size.width > rect.size.height {
-            minutesHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.height / 2) + 3.5 )
+            minutesHandLayer.bounds = CGRect(x: 0, y: 0, width: minutesHandLineWidth, height: (rect.size.height / 2) + 3.5 )
         } else {
-            minutesHandLayer.bounds = CGRect(x: 0, y: 0, width: 8, height: (rect.size.width / 2) + 3.5)
+            minutesHandLayer.bounds = CGRect(x: 0, y: 0, width: minutesHandLineWidth, height: (rect.size.width / 2) + 3.5)
         }
         
         //add progressive shape layer
@@ -110,7 +110,6 @@ class TimerView: UIView {
         let fromValue = (minuteAngle + 180) * CGFloat(Double.pi / 180)
         let toValue =  (0 + 180) * CGFloat(Double.pi / 180)
         minutesHandAnimation.duration = CFTimeInterval(withValue)
-        minutesHandAnimation.isRemovedOnCompletion = false
         minutesHandAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         // From start angle (according to calculated angle from time) plus 360deg which equals 1 rotation
         minutesHandAnimation.fromValue = fromValue
@@ -128,7 +127,6 @@ class TimerView: UIView {
         progressiveStrokeAnimation.duration = CFTimeInterval(withValue)
         progressiveStrokeAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear) // animation curve is Ease Out
         progressiveStrokeAnimation.fillMode = CAMediaTimingFillMode.both // keep to value after finishing
-        progressiveStrokeAnimation.isRemovedOnCompletion = false
         progressiveShapeLayer.add(progressiveStrokeAnimation, forKey: progressiveStrokeAnimation.keyPath)
     }
     
@@ -148,6 +146,7 @@ class TimerView: UIView {
 
         setProgressiveLayerPath(angle: minuteAngle)
     }
+    
     func pauseTimer() {
         minutesHandLayer.transform = minutesHandLayer.presentation()!.transform
         minutesHandLayer.removeAnimation(forKey: minutesHandAnimation.keyPath!)
@@ -159,12 +158,12 @@ class TimerView: UIView {
         let tipLength = 20
         minutesHandLayer.layoutIfNeeded()
         let tipLayer = CALayer()
-        tipLayer.backgroundColor = UIColor.red.cgColor
+        tipLayer.backgroundColor = minutesHandColor.cgColor
         tipLayer.cornerRadius = CGFloat(tipLength / 2)
         // Puts the center of the rectangle in the center of the clock
         tipLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         // Positions the hand in the middle of the clock
-        tipLayer.position = CGPoint(x: 4, y: minutesHandLayer.bounds.height - CGFloat(tipLength / 2) + 4) // 8/2 = 4 is width of the circle line
+        tipLayer.position = CGPoint(x: minutesHandLineWidth/2, y: minutesHandLayer.bounds.height - CGFloat(tipLength / 2) + minutesHandLineWidth/2) // 8/2 = 4 is width of the circle line
             tipLayer.bounds = CGRect(x: 0, y: 0, width: tipLength, height: tipLength )
         minutesHandLayer.addSublayer(tipLayer)
     }
@@ -172,11 +171,11 @@ class TimerView: UIView {
     func addProgressiveLayer() {
         progressiveShapeLayer = CAShapeLayer()
         // Set fill color to clear
-        progressiveShapeLayer.fillColor = UIColor.clear.cgColor
+        progressiveShapeLayer.fillColor = clearColor.cgColor
         // Set the border color to black
-        progressiveShapeLayer.strokeColor = UIColor.green.cgColor
+        progressiveShapeLayer.strokeColor = progressiveLayerColor.cgColor
         // Set width of border
-        progressiveShapeLayer.lineWidth = 8.0
+        progressiveShapeLayer.lineWidth = clockLineWidth
         self.layer.addSublayer(progressiveShapeLayer)
     }
     
