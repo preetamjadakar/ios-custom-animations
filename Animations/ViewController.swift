@@ -45,5 +45,11 @@ final class ViewController: UIViewController {
         transitionVC.title = (sender as! UIButton).titleLabel?.text
         self.navigationController?.pushViewController(transitionVC, animated:true)
     }
+    @IBAction func imageViewAnimation(_ sender: Any) {
+        let storyboard = UIStoryboard.init(name: "AnimationCourseStoryboard", bundle: nil)
+              let transitionVC = storyboard.instantiateViewController(withIdentifier: "imageViewAnimation") as! ImageViewAnimationController
+              transitionVC.title = (sender as! UIButton).titleLabel?.text
+              self.navigationController?.pushViewController(transitionVC, animated:true)
+    }
 }
 

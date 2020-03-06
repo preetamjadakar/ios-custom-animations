@@ -2,10 +2,16 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="RobotoMono-Light.ttf">
+            <string>RobotoMono-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Destination View Controller-->
         <scene sceneID="IS7-U2-iwS">
@@ -21,6 +27,83 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZb-b6-eq3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="83" y="209"/>
+        </scene>
+        <!--Timer View Controller-->
+        <scene sceneID="1UH-wT-wEW">
+            <objects>
+                <viewController id="FQn-aw-Etd" customClass="TimerViewController" customModule="Animations" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IIs-qr-kH0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NH8-lS-sJR" customClass="TimerView" customModule="Animations" customModuleProvider="target">
+                                <rect key="frame" x="87" y="328" width="240" height="240"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="SLJ-LC-1dl"/>
+                                    <constraint firstAttribute="height" constant="240" id="vqC-L3-fbA"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l0B-VF-oDL">
+                                <rect key="frame" x="139.5" y="601" width="135.5" height="59.5"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" name="RobotoMono-Light" family="Roboto Mono" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="6w3-qq-zU7" appends="YES" id="twZ-xh-mss"/>
+                                </connections>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fML-V0-2EZ" customClass="PJButton" customModule="Animations" customModuleProvider="target">
+                                <rect key="frame" x="277" y="744.5" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="X1o-7A-F8C"/>
+                                </constraints>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startOrPauseAnimationAction:" destination="FQn-aw-Etd" eventType="touchUpInside" id="Jmh-9I-4pj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgD-G4-dV2" customClass="PJButton" customModule="Animations" customModuleProvider="target">
+                                <rect key="frame" x="87" y="744.5" width="65" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="65" id="jHW-SB-a6V"/>
+                                </constraints>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetTimerAction:" destination="FQn-aw-Etd" eventType="touchUpInside" id="Efh-wO-PST"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="lgD-G4-dV2" firstAttribute="top" secondItem="fML-V0-2EZ" secondAttribute="top" id="7kg-Kv-b23"/>
+                            <constraint firstItem="l0B-VF-oDL" firstAttribute="centerX" secondItem="IIs-qr-kH0" secondAttribute="centerX" id="NaH-7c-UIp"/>
+                            <constraint firstItem="fML-V0-2EZ" firstAttribute="top" secondItem="l0B-VF-oDL" secondAttribute="bottom" constant="84" id="Qji-4k-6bD"/>
+                            <constraint firstItem="NH8-lS-sJR" firstAttribute="centerX" secondItem="IIs-qr-kH0" secondAttribute="centerX" id="Sgt-wX-Qo8"/>
+                            <constraint firstItem="NH8-lS-sJR" firstAttribute="centerY" secondItem="IIs-qr-kH0" secondAttribute="centerY" id="WFh-XH-LAF"/>
+                            <constraint firstItem="YnB-p1-EXE" firstAttribute="trailing" secondItem="fML-V0-2EZ" secondAttribute="trailing" constant="72" id="Z8C-HQ-2Xg"/>
+                            <constraint firstItem="lgD-G4-dV2" firstAttribute="leading" secondItem="YnB-p1-EXE" secondAttribute="leading" constant="87" id="rLQ-Hf-lLk"/>
+                            <constraint firstItem="l0B-VF-oDL" firstAttribute="top" secondItem="NH8-lS-sJR" secondAttribute="bottom" constant="33" id="ril-XX-CrN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="YnB-p1-EXE"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="p1b-c8-eOm"/>
+                    <connections>
+                        <outlet property="resetButton" destination="lgD-G4-dV2" id="Nps-PU-h3A"/>
+                        <outlet property="startPauseButton" destination="fML-V0-2EZ" id="zUY-F0-zZF"/>
+                        <outlet property="timerValueLabel" destination="l0B-VF-oDL" id="awe-UE-7kb"/>
+                        <outlet property="timerView" destination="NH8-lS-sJR" id="Ehd-7c-1zp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Z2-Nv-kgz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6w3-qq-zU7" userLabel="TimerValueLabel Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="timerValueLabelTapped:" destination="FQn-aw-Etd" id="3eo-bG-B3v"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2355.072463768116" y="775.44642857142856"/>
         </scene>
     </scenes>
 </document>

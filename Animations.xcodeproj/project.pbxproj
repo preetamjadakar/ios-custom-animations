@@ -39,6 +39,8 @@
 		84A088C823E82C9600683A7A /* NBMaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A088C723E82C9600683A7A /* NBMaterialTextField.swift */; };
 		84AE008F23FFD15300E1E905 /* RobotoMono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84AE008D23FFD15300E1E905 /* RobotoMono-Regular.ttf */; };
 		84AE009023FFD15300E1E905 /* RobotoMono-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84AE008E23FFD15300E1E905 /* RobotoMono-Medium.ttf */; };
+		84C6C63224124DC400D7088E /* ImageViewAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6C63124124DC400D7088E /* ImageViewAnimationController.swift */; };
+		84C6C63424124DE300D7088E /* AnimationCourseStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84C6C63324124DE300D7088E /* AnimationCourseStoryboard.storyboard */; };
 		84D9A25E23DEA69A00E5CF4A /* ViewAnimatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9A25D23DEA69A00E5CF4A /* ViewAnimatorViewController.swift */; };
 		84E6DE1423CAEBFE00823743 /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E6DE1323CAEBFE00823743 /* DestinationViewController.swift */; };
 		84E6DE1623CAEC5B00823743 /* DestinationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E6DE1523CAEC5B00823743 /* DestinationStoryboard.storyboard */; };
@@ -100,6 +102,8 @@
 		84A088C723E82C9600683A7A /* NBMaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NBMaterialTextField.swift; sourceTree = "<group>"; };
 		84AE008D23FFD15300E1E905 /* RobotoMono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Regular.ttf"; sourceTree = "<group>"; };
 		84AE008E23FFD15300E1E905 /* RobotoMono-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Medium.ttf"; sourceTree = "<group>"; };
+		84C6C63124124DC400D7088E /* ImageViewAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewAnimationController.swift; sourceTree = "<group>"; };
+		84C6C63324124DE300D7088E /* AnimationCourseStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimationCourseStoryboard.storyboard; sourceTree = "<group>"; };
 		84D9A25D23DEA69A00E5CF4A /* ViewAnimatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnimatorViewController.swift; sourceTree = "<group>"; };
 		84E6DE1323CAEBFE00823743 /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		84E6DE1523CAEC5B00823743 /* DestinationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DestinationStoryboard.storyboard; sourceTree = "<group>"; };
@@ -185,26 +189,11 @@
 				847C23AB23C308E200F6E502 /* AppDelegate.swift */,
 				847C23AD23C308E200F6E502 /* SceneDelegate.swift */,
 				847C23AF23C308E200F6E502 /* ViewController.swift */,
-				847C23E023C4450C00F6E502 /* AnimateWithDurationViewController.swift */,
-				847C23E423C4452900F6E502 /* TransitionsViewController.swift */,
-				84E6DE1923D042C100823743 /* TransformViewController.swift */,
-				84E6DE1323CAEBFE00823743 /* DestinationViewController.swift */,
-				84D9A25D23DEA69A00E5CF4A /* ViewAnimatorViewController.swift */,
-				84A088C123E825B200683A7A /* SecondsCountDownView.swift */,
-				84A088C323E8275D00683A7A /* ClientViewController.swift */,
-				84A088C523E82C8400683A7A /* NBMaterialButton.swift */,
-				84A088C723E82C9600683A7A /* NBMaterialTextField.swift */,
-				843BF14423E99E450098D355 /* CollectionViewController.swift */,
-				8432CFF123E9CCA000D0A111 /* TableViewController.swift */,
-				84E8492823FD58FD00890D22 /* TimerView.swift */,
-				848AA7EC23FFE3930073A3E4 /* Constants.swift */,
-				84E8492623FD2F2000890D22 /* TimerViewController.swift */,
-				84E8492A23FE655800890D22 /* PickerView.xib */,
-				84E8492C23FE65A900890D22 /* PickerView.swift */,
-				848AA7EE23FFF4400073A3E4 /* PJButton.swift */,
-				848AA7FA2400F1D90073A3E4 /* egg_timer_alarm.caf */,
+				84C6C62E24124D2100D7088E /* AnimationsOld */,
+				84C6C62F24124D4C00D7088E /* Timer */,
 				847C23B123C308E200F6E502 /* Main.storyboard */,
 				84E6DE1523CAEC5B00823743 /* DestinationStoryboard.storyboard */,
+				84C6C63024124D8400D7088E /* AnimationsCourse */,
 				847C23B723C308E500F6E502 /* Assets.xcassets */,
 				847C23B923C308E500F6E502 /* LaunchScreen.storyboard */,
 				847C23BC23C308E500F6E502 /* Info.plist */,
@@ -241,6 +230,47 @@
 				848AA7EA23FFE3130073A3E4 /* RobotoMono-Light.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		84C6C62E24124D2100D7088E /* AnimationsOld */ = {
+			isa = PBXGroup;
+			children = (
+				847C23E023C4450C00F6E502 /* AnimateWithDurationViewController.swift */,
+				847C23E423C4452900F6E502 /* TransitionsViewController.swift */,
+				84E6DE1923D042C100823743 /* TransformViewController.swift */,
+				84E6DE1323CAEBFE00823743 /* DestinationViewController.swift */,
+				84D9A25D23DEA69A00E5CF4A /* ViewAnimatorViewController.swift */,
+				84A088C123E825B200683A7A /* SecondsCountDownView.swift */,
+				84A088C323E8275D00683A7A /* ClientViewController.swift */,
+				84A088C523E82C8400683A7A /* NBMaterialButton.swift */,
+				84A088C723E82C9600683A7A /* NBMaterialTextField.swift */,
+				843BF14423E99E450098D355 /* CollectionViewController.swift */,
+				8432CFF123E9CCA000D0A111 /* TableViewController.swift */,
+			);
+			path = AnimationsOld;
+			sourceTree = "<group>";
+		};
+		84C6C62F24124D4C00D7088E /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				84E8492823FD58FD00890D22 /* TimerView.swift */,
+				848AA7EC23FFE3930073A3E4 /* Constants.swift */,
+				84E8492623FD2F2000890D22 /* TimerViewController.swift */,
+				84E8492A23FE655800890D22 /* PickerView.xib */,
+				84E8492C23FE65A900890D22 /* PickerView.swift */,
+				848AA7EE23FFF4400073A3E4 /* PJButton.swift */,
+				848AA7FA2400F1D90073A3E4 /* egg_timer_alarm.caf */,
+			);
+			path = Timer;
+			sourceTree = "<group>";
+		};
+		84C6C63024124D8400D7088E /* AnimationsCourse */ = {
+			isa = PBXGroup;
+			children = (
+				84C6C63124124DC400D7088E /* ImageViewAnimationController.swift */,
+				84C6C63324124DE300D7088E /* AnimationCourseStoryboard.storyboard */,
+			);
+			path = AnimationsCourse;
 			sourceTree = "<group>";
 		};
 		DB1DAB83A805DB5AF1DCFEF8 /* Pods */ = {
@@ -366,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84E8492B23FE655800890D22 /* PickerView.xib in Resources */,
+				84C6C63424124DE300D7088E /* AnimationCourseStoryboard.storyboard in Resources */,
 				84E6DE1623CAEC5B00823743 /* DestinationStoryboard.storyboard in Resources */,
 				848AA7FB2400F1DA0073A3E4 /* egg_timer_alarm.caf in Resources */,
 				84AE009023FFD15300E1E905 /* RobotoMono-Medium.ttf in Resources */,
@@ -507,6 +538,7 @@
 				84E8492D23FE65A900890D22 /* PickerView.swift in Sources */,
 				84A088C423E8275D00683A7A /* ClientViewController.swift in Sources */,
 				847C23E123C4450C00F6E502 /* AnimateWithDurationViewController.swift in Sources */,
+				84C6C63224124DC400D7088E /* ImageViewAnimationController.swift in Sources */,
 				84E8492723FD2F2000890D22 /* TimerViewController.swift in Sources */,
 				843BF14523E99E450098D355 /* CollectionViewController.swift in Sources */,
 				847C23B023C308E200F6E502 /* ViewController.swift in Sources */,
