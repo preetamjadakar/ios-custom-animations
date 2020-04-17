@@ -78,7 +78,8 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
               } else {
                   print("Response: \(String(describing: response))")
               }
-         })
+            })
+        task.resume()
         
     }
 }

@@ -84,6 +84,6 @@ extension TableViewController: UITableViewDelegate, UITableViewDataSource {
     func someFunction() {
         var scores = ["Sophie": 5, "James": 2]
         let result = scores.updateValue(3, forKey: "James")
-        print(result)
+        print(result as Any)
     }
 }

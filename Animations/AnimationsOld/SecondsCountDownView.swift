@@ -73,9 +73,6 @@ class SecondsCountDownView: UIView {
     // MARK: - Setup methods
     func setupView() {
         
-        let centerPoint = CGPoint (x: bounds.midX, y: bounds.midY)
-        let circleRadius : CGFloat = bounds.width / 2 * 0.85
-        
         let circlePath = UIBezierPath(arcCenter:CGPoint(x:200, y:200), radius:100, startAngle:-.pi/2, endAngle:1.5 * .pi, clockwise:true)
         
 //        fillLayer.path = circlePath.cgPath
