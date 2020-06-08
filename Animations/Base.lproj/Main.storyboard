@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N72-h9-oXB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZR9-vH-J2O">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -21,11 +21,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HPT-Kg-ogG">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5U-gs-UFq">
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Xnu-Cs-0P7">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="830"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="Dkw-so-guG">
+                                        <rect key="frame" x="0.0" y="5" width="414" height="1150"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UQm-q0-zln">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
@@ -35,117 +35,118 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Thm-8e-ht8">
-                                                <rect key="frame" x="0.0" y="50" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="70" width="414" height="30"/>
                                                 <state key="normal" title="Transitions"/>
                                                 <connections>
                                                     <action selector="transitionsAction:" destination="ZR9-vH-J2O" eventType="touchUpInside" id="ist-kg-1JM"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yI0-dL-M5T" userLabel="Transform">
-                                                <rect key="frame" x="0.0" y="100" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="140" width="414" height="30"/>
                                                 <state key="normal" title="Transform"/>
                                                 <connections>
                                                     <action selector="transformButtonAction:" destination="ZR9-vH-J2O" eventType="touchUpInside" id="uy8-xK-WBw"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wuc-3R-GES" userLabel="UIViewAnimator">
-                                                <rect key="frame" x="0.0" y="150" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="210" width="414" height="30"/>
                                                 <state key="normal" title="UIViewAnimator"/>
                                                 <connections>
                                                     <action selector="animatorButtonAction:" destination="ZR9-vH-J2O" eventType="touchUpInside" id="Pby-B5-myI"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qcd-8W-xc9" userLabel="UIViewAnimator">
-                                                <rect key="frame" x="0.0" y="200" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="280" width="414" height="30"/>
                                                 <state key="normal" title="CircleView"/>
                                                 <connections>
                                                     <segue destination="ZVx-w7-oCb" kind="showDetail" id="0sa-tf-4RZ"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJZ-Df-nPF" userLabel="UIViewAnimator">
-                                                <rect key="frame" x="0.0" y="250" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="350" width="414" height="30"/>
                                                 <state key="normal" title="CollectionViewController"/>
                                                 <connections>
                                                     <segue destination="8ac-ML-0uq" kind="showDetail" id="OfS-7D-bak"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0C9-xI-zEY" userLabel="UIViewAnimator">
-                                                <rect key="frame" x="0.0" y="300" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="420" width="414" height="30"/>
                                                 <state key="normal" title="TableViewController"/>
                                                 <connections>
                                                     <segue destination="Owg-nL-u16" kind="showDetail" id="gVm-kD-OIj"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="66V-DK-J9a" userLabel="UIViewAnimator">
-                                                <rect key="frame" x="0.0" y="350" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="490" width="414" height="30"/>
                                                 <state key="normal" title="Pod Timer"/>
                                                 <connections>
                                                     <segue destination="L9n-Hh-iyU" kind="show" id="5eU-EO-tpf"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7jX-Ba-sAT" userLabel="UIViewAnimator">
-                                                <rect key="frame" x="0.0" y="400" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="560" width="414" height="30"/>
                                                 <state key="normal" title="Timer"/>
                                                 <connections>
                                                     <segue destination="3aK-Yn-nCr" kind="show" id="QUT-kK-Sy3"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z67-lO-bYQ">
-                                                <rect key="frame" x="0.0" y="450" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="630" width="414" height="30"/>
                                                 <state key="normal" title="ImageViewAnimation"/>
                                                 <connections>
                                                     <action selector="imageViewAnimation:" destination="ZR9-vH-J2O" eventType="touchUpInside" id="Spg-LC-hGb"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REN-Vf-sCS">
-                                                <rect key="frame" x="0.0" y="500" width="414" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLL-al-QQ4">
-                                                <rect key="frame" x="0.0" y="550" width="414" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvZ-q7-XVA">
-                                                <rect key="frame" x="0.0" y="600" width="414" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fX-8D-KJT">
-                                                <rect key="frame" x="0.0" y="650" width="414" height="30"/>
-                                                <state key="normal" title="Button"/>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-D6-V0b">
                                                 <rect key="frame" x="0.0" y="700" width="414" height="30"/>
                                                 <state key="normal" title="Button"/>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KLL-al-QQ4">
+                                                <rect key="frame" x="0.0" y="770" width="414" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvZ-q7-XVA">
+                                                <rect key="frame" x="0.0" y="840" width="414" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fX-8D-KJT">
+                                                <rect key="frame" x="0.0" y="910" width="414" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AmR-D6-V0b">
+                                                <rect key="frame" x="0.0" y="980" width="414" height="30"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3rx-gH-Dse">
-                                                <rect key="frame" x="0.0" y="750" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="1050" width="414" height="30"/>
                                                 <state key="normal" title="Button"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="02V-H8-raE">
-                                                <rect key="frame" x="0.0" y="800" width="414" height="30"/>
+                                                <rect key="frame" x="0.0" y="1120" width="414" height="30"/>
                                                 <state key="normal" title="Button111"/>
                                             </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="Xnu-Cs-0P7" firstAttribute="leading" secondItem="GZj-DX-4hi" secondAttribute="leading" id="02R-xl-GIW"/>
-                                    <constraint firstItem="Xnu-Cs-0P7" firstAttribute="trailing" secondItem="GZj-DX-4hi" secondAttribute="trailing" id="Ez3-ks-LpL"/>
-                                    <constraint firstItem="Xnu-Cs-0P7" firstAttribute="top" secondItem="HPT-Kg-ogG" secondAttribute="top" id="fJQ-lK-6St"/>
-                                    <constraint firstAttribute="bottom" secondItem="Xnu-Cs-0P7" secondAttribute="bottom" id="sH1-ve-xvk"/>
-                                    <constraint firstItem="Xnu-Cs-0P7" firstAttribute="centerX" secondItem="HPT-Kg-ogG" secondAttribute="centerX" id="xjn-g2-kOo"/>
+                                    <constraint firstItem="weM-vo-jS2" firstAttribute="width" secondItem="Dkw-so-guG" secondAttribute="width" id="KP1-tp-Gd7"/>
+                                    <constraint firstItem="9fo-uM-d7W" firstAttribute="trailing" secondItem="Dkw-so-guG" secondAttribute="trailing" id="LEj-1j-1cR"/>
+                                    <constraint firstItem="Dkw-so-guG" firstAttribute="top" secondItem="T5U-gs-UFq" secondAttribute="top" constant="5" id="X5p-cJ-fYg"/>
+                                    <constraint firstAttribute="bottom" secondItem="Dkw-so-guG" secondAttribute="bottom" constant="5" id="l68-bJ-Otu"/>
+                                    <constraint firstItem="Dkw-so-guG" firstAttribute="leading" secondItem="9fo-uM-d7W" secondAttribute="leading" id="q6b-ZW-MHs"/>
                                 </constraints>
-                                <viewLayoutGuide key="contentLayoutGuide" id="aPd-N4-Fqg"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="GZj-DX-4hi"/>
+                                <viewLayoutGuide key="contentLayoutGuide" id="weM-vo-jS2"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="9fo-uM-d7W"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="HPT-Kg-ogG" firstAttribute="leading" secondItem="kzh-jy-wMJ" secondAttribute="leading" id="2Dd-qt-0vj"/>
-                            <constraint firstItem="HPT-Kg-ogG" firstAttribute="top" secondItem="kzh-jy-wMJ" secondAttribute="top" id="KRB-x6-62Y"/>
-                            <constraint firstItem="kzh-jy-wMJ" firstAttribute="bottom" secondItem="HPT-Kg-ogG" secondAttribute="bottom" id="LYp-8B-TvT"/>
-                            <constraint firstItem="kzh-jy-wMJ" firstAttribute="trailing" secondItem="HPT-Kg-ogG" secondAttribute="trailing" id="e5r-tS-TDS"/>
-                            <constraint firstItem="Xnu-Cs-0P7" firstAttribute="width" secondItem="kzh-jy-wMJ" secondAttribute="width" id="yy5-8z-W5j"/>
+                            <constraint firstItem="T5U-gs-UFq" firstAttribute="width" secondItem="kzh-jy-wMJ" secondAttribute="width" id="2VU-ux-cXG"/>
+                            <constraint firstItem="T5U-gs-UFq" firstAttribute="top" secondItem="kzh-jy-wMJ" secondAttribute="top" id="8Rd-1w-a3y"/>
+                            <constraint firstItem="T5U-gs-UFq" firstAttribute="bottom" secondItem="kzh-jy-wMJ" secondAttribute="bottom" id="BEK-E3-Qde"/>
+                            <constraint firstItem="kzh-jy-wMJ" firstAttribute="trailing" secondItem="T5U-gs-UFq" secondAttribute="trailing" id="cQX-L1-XPd"/>
+                            <constraint firstItem="Dkw-so-guG" firstAttribute="width" secondItem="kzh-jy-wMJ" secondAttribute="width" id="szX-cM-Mb6"/>
+                            <constraint firstItem="T5U-gs-UFq" firstAttribute="leading" secondItem="kzh-jy-wMJ" secondAttribute="leading" id="xfU-sQ-wmL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="kzh-jy-wMJ"/>
                     </view>
@@ -153,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kB1-yD-Df0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="86.956521739130437" y="121.875"/>
+            <point key="canvasLocation" x="205.79710144927537" y="-183.48214285714286"/>
         </scene>
         <!--Animate With Duration View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -549,7 +550,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVm-FR-Yd7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-823.1884057971015" y="121.875"/>
+            <point key="canvasLocation" x="-716" y="7"/>
         </scene>
         <!--View Animator View Controller-->
         <scene sceneID="iQF-0N-1wg">
