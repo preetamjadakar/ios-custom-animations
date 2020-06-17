@@ -1,45 +1,47 @@
 //
-//  PickerView.swift
+//  PJPickerView.swift
 //  Animations
 //
-//  Created by admin on 20/02/20.
-//  Copyright © 2020 Nihilent. All rights reserved.
+//  Created by Preetam Jadakar on 23/02/20.
+//  Copyright © 2020 preetamjadakar. All rights reserved.
 //
 
 import UIKit
 
-protocol PickerViewDelegate {
+protocol PJPickerViewDelegate {
     func didSelect(min: Int, sec:Int)
 }
-class PickerView: UIView {
-    
+
+class PJPickerView: UIView {
+    @IBOutlet weak var pickerContainerView: UIView!
     @IBOutlet weak var timePicker: UIPickerView!
     
     @IBOutlet weak var doneButton: PJButton!
-    var delegate: PickerViewDelegate?
+    var delegate: PJPickerViewDelegate?
     var presentationPoint = CGPoint()
-    class func instanceFromNib() -> PickerView {
-        return UINib(nibName: "PickerView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! PickerView
+    class func instanceFromNib() -> PJPickerView {
+        return UINib(nibName: "PJPickerView", bundle: nil).instantiate(withOwner: nil, options: nil)[0] as! PJPickerView
     }
-    
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
         setPickerLabels()
         setupInitialScale()
+        pickerContainerView.layer.cornerRadius = 5
     }
     
     func setupInitialScale() {
-        transform = CGAffineTransform(scaleX: 0, y: 0)
+        transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
         center = presentationPoint
     }
     
     @IBAction func doneButtonAction(_ sender: Any) {
-        animatePickerView(show: false)
+        showPickerView(false)
         delegate?.didSelect(min: timePicker.selectedRow(inComponent: 0), sec: timePicker.selectedRow(inComponent: 1))
     }
     
     @IBAction func cancelButtonAction(_ sender: Any) {
-        animatePickerView(show: false)
+        showPickerView(false)
     }
     
     func setTimePicker(for min:Int, sec: Int) {
@@ -48,33 +50,30 @@ class PickerView: UIView {
         timePicker.selectRow(sec, inComponent: 1, animated: true)
     }
     
-    func animatePickerView(show: Bool) {
+    func showPickerView(_ show: Bool) {
         if show {
+            self.center = self.presentationPoint
             self.isHidden = false
-            UIView.animate(withDuration: 0.3, animations: {[weak self] in
-                guard let selfObj = self else { return }
-                selfObj.transform = .identity
-                selfObj.center = selfObj.superview!.center
+            UIView.animate(withDuration: 0.3, animations: { [unowned self] in
+                self.transform = .identity
+                self.center = self.superview!.center
                 }, completion: nil)
-            
         } else {
-            //hide
-            UIView.animate(withDuration: 0.3, animations: {[weak self] in
-                guard let selfObj = self else { return }
-                selfObj.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
-                selfObj.center = selfObj.presentationPoint
-                }, completion: {(finished) in
+            UIView.animate(withDuration: 0.3, animations: {[unowned self] in
+                self.transform = CGAffineTransform(scaleX: 0.001, y: 0.001)
+                self.center = self.presentationPoint
+                }, completion: { [unowned self] (finished) in
                     self.isHidden = true
             })
         }
     }
     
-    func setPickerLabels() { // [component number:label]
+    /// Adds "min." and "sec." titles just after respective components to indicate the values.
+    func setPickerLabels() {
         let minLabel = UILabel()
-        
-        minLabel.text = "min."
+        minLabel.text = NSLocalizedString("label_min", comment: "")
         let secLabel = UILabel()
-        secLabel.text = "sec."
+        secLabel.text = NSLocalizedString("label_sec", comment: "")
         
         let labels = [0:minLabel, 1:secLabel]
         let fontSize:CGFloat = 20
@@ -94,7 +93,7 @@ class PickerView: UIView {
                 label.font = fontStyle1
                 label.backgroundColor = .clear
                 label.textAlignment = .right
-                
+                label.textColor = .white
                 timePicker.addSubview(label)
             }
         }
@@ -102,7 +101,7 @@ class PickerView: UIView {
 }
 
 
-extension PickerView: UIPickerViewDelegate, UIPickerViewDataSource {
+extension PJPickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
     }
@@ -113,7 +112,7 @@ extension PickerView: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         let pickerLabel = UILabel()
-        pickerLabel.textColor = UIColor.black
+        pickerLabel.textColor = .white
         pickerLabel.text = "\(row)"
         pickerLabel.font = fontStyle3
         pickerLabel.textAlignment = .center

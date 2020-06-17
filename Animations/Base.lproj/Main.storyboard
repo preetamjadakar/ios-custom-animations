@@ -8,8 +8,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="RobotoMono-Light.ttf">
-            <string>RobotoMono-Light</string>
+        <array key="RobotoMono-Regular.ttf">
+            <string>RobotoMono-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -87,7 +87,7 @@
                                                 <rect key="frame" x="0.0" y="560" width="414" height="30"/>
                                                 <state key="normal" title="Timer"/>
                                                 <connections>
-                                                    <segue destination="3aK-Yn-nCr" kind="show" id="QUT-kK-Sy3"/>
+                                                    <segue destination="reZ-1K-LIf" kind="showDetail" id="ldL-2q-o9G"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z67-lO-bYQ">
@@ -341,83 +341,6 @@
             </objects>
             <point key="canvasLocation" x="1046" y="762"/>
         </scene>
-        <!--Timer View Controller-->
-        <scene sceneID="UFD-5r-gni">
-            <objects>
-                <viewController id="3aK-Yn-nCr" customClass="TimerViewController" customModule="Animations" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="zl3-iI-4i0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6SM-OG-wsT" customClass="TimerView" customModule="Animations" customModuleProvider="target">
-                                <rect key="frame" x="87" y="328" width="240" height="240"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="eob-zd-1gt"/>
-                                    <constraint firstAttribute="width" constant="240" id="oZi-5Y-BZx"/>
-                                </constraints>
-                            </view>
-                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guz-1F-GTV">
-                                <rect key="frame" x="132" y="601" width="150.5" height="66"/>
-                                <gestureRecognizers/>
-                                <fontDescription key="fontDescription" name="RobotoMono-Light" family="Roboto Mono" pointSize="50"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="bhe-4T-qgW" appends="YES" id="l9G-YL-fPi"/>
-                                </connections>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eBP-6F-MPQ" customClass="PJButton" customModule="Animations" customModuleProvider="target">
-                                <rect key="frame" x="277" y="751" width="65" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="65" id="eBV-uj-Jg6"/>
-                                </constraints>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <action selector="startOrPauseAnimationAction:" destination="3aK-Yn-nCr" eventType="touchUpInside" id="uSH-Ia-GI7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kra-9J-dBE" customClass="PJButton" customModule="Animations" customModuleProvider="target">
-                                <rect key="frame" x="87" y="751" width="65" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="65" id="0E6-6b-XtK"/>
-                                </constraints>
-                                <state key="normal" title="Reset"/>
-                                <connections>
-                                    <action selector="resetTimerAction:" destination="3aK-Yn-nCr" eventType="touchUpInside" id="STZ-u7-dxm"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="6SM-OG-wsT" firstAttribute="centerY" secondItem="zl3-iI-4i0" secondAttribute="centerY" id="Aqh-Z2-qFW"/>
-                            <constraint firstItem="guz-1F-GTV" firstAttribute="centerX" secondItem="zl3-iI-4i0" secondAttribute="centerX" id="Kr5-Hn-zXI"/>
-                            <constraint firstItem="Kra-9J-dBE" firstAttribute="top" secondItem="eBP-6F-MPQ" secondAttribute="top" id="cDd-AN-bAa"/>
-                            <constraint firstItem="Kra-9J-dBE" firstAttribute="leading" secondItem="FcV-3T-4kv" secondAttribute="leading" constant="87" id="dZM-3m-Lv2"/>
-                            <constraint firstItem="6SM-OG-wsT" firstAttribute="centerX" secondItem="zl3-iI-4i0" secondAttribute="centerX" id="mOY-Ki-Jkd"/>
-                            <constraint firstItem="FcV-3T-4kv" firstAttribute="trailing" secondItem="eBP-6F-MPQ" secondAttribute="trailing" constant="72" id="otK-WZ-2h0"/>
-                            <constraint firstItem="eBP-6F-MPQ" firstAttribute="top" secondItem="guz-1F-GTV" secondAttribute="bottom" constant="84" id="uU7-fF-FBN"/>
-                            <constraint firstItem="guz-1F-GTV" firstAttribute="top" secondItem="6SM-OG-wsT" secondAttribute="bottom" constant="33" id="yDL-0V-0JV"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="FcV-3T-4kv"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="NL6-ru-OaQ"/>
-                    <connections>
-                        <outlet property="resetButton" destination="Kra-9J-dBE" id="HXd-o1-Mvq"/>
-                        <outlet property="startPauseButton" destination="eBP-6F-MPQ" id="MZQ-m2-D3D"/>
-                        <outlet property="timerValueLabel" destination="guz-1F-GTV" id="K1r-J4-BHQ"/>
-                        <outlet property="timerView" destination="6SM-OG-wsT" id="opZ-dz-7YN"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="d0s-NN-e8B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="bhe-4T-qgW" userLabel="TimerValueLabel Tap Gesture Recognizer">
-                    <connections>
-                        <action selector="timerValueLabelTapped:" destination="3aK-Yn-nCr" id="SYj-fM-9Ra"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="2355.072463768116" y="775.44642857142856"/>
-        </scene>
         <!--Client View Controller-->
         <scene sceneID="zdA-d9-r9X">
             <objects>
@@ -614,6 +537,116 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OhI-xH-ZwL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1120" y="1267"/>
+        </scene>
+        <!--Timer View Controller-->
+        <scene sceneID="zmQ-Zq-rr8">
+            <objects>
+                <viewController id="reZ-1K-LIf" customClass="TimerViewController" customModule="Animations" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dHV-fs-hH6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view userInteractionEnabled="NO" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="p2s-Lt-Bb2" customClass="PJTimerView" customModule="Animations" customModuleProvider="target">
+                                <rect key="frame" x="83" y="158.5" width="248" height="248.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="p2s-Lt-Bb2" secondAttribute="height" multiplier="1:1" id="Nfd-ec-MFF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kV7-gR-RhE">
+                                <rect key="frame" x="83" y="407" width="248" height="341"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gS6-Ub-ruI" customClass="PJButton" customModule="Animations" customModuleProvider="target">
+                                        <rect key="frame" x="92" y="307" width="156" height="34"/>
+                                        <state key="normal" title="buttonTitle_start">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="startOrPauseAnimationAction:" destination="reZ-1K-LIf" eventType="touchUpInside" id="Ar7-2d-iD0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K06-XD-yUs" customClass="PJButton" customModule="Animations" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="307" width="156" height="34"/>
+                                        <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                        <state key="normal" title="buttonTitle_reset">
+                                            <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetTimerAction:" destination="reZ-1K-LIf" eventType="touchUpInside" id="1w7-Lm-hti"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Fi-0h-eQ1">
+                                        <rect key="frame" x="19" y="94.5" width="210" height="92.5"/>
+                                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <gestureRecognizers/>
+                                        <fontDescription key="fontDescription" name="RobotoMono-Regular" family="Roboto Mono" pointSize="70"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="9ss-Pd-Vie" appends="YES" id="1fU-D9-zki"/>
+                                        </connections>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gS6-Ub-ruI" firstAttribute="width" secondItem="K06-XD-yUs" secondAttribute="width" id="41H-hY-pg9"/>
+                                    <constraint firstItem="8Fi-0h-eQ1" firstAttribute="centerY" secondItem="kV7-gR-RhE" secondAttribute="centerY" constant="-30" id="7Fl-al-H5G"/>
+                                    <constraint firstItem="K06-XD-yUs" firstAttribute="leading" secondItem="kV7-gR-RhE" secondAttribute="leading" id="Akc-rE-PqP"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="K06-XD-yUs" secondAttribute="trailing" constant="20" symbolic="YES" id="C2E-OV-gO4"/>
+                                    <constraint firstAttribute="bottom" secondItem="K06-XD-yUs" secondAttribute="bottom" id="Eok-ic-pJ5"/>
+                                    <constraint firstItem="8Fi-0h-eQ1" firstAttribute="centerX" secondItem="kV7-gR-RhE" secondAttribute="centerX" id="JTh-DR-PdK"/>
+                                    <constraint firstItem="gS6-Ub-ruI" firstAttribute="height" secondItem="K06-XD-yUs" secondAttribute="height" id="SyB-VE-803"/>
+                                    <constraint firstItem="gS6-Ub-ruI" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kV7-gR-RhE" secondAttribute="leading" constant="20" symbolic="YES" id="VNg-GM-bgr"/>
+                                    <constraint firstAttribute="trailing" secondItem="gS6-Ub-ruI" secondAttribute="trailing" id="Zbl-56-BMS"/>
+                                    <constraint firstAttribute="bottom" secondItem="gS6-Ub-ruI" secondAttribute="bottom" id="gD3-fq-wRE"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.20792394880000001" green="0.60313868520000002" blue="0.98926359419999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="p2s-Lt-Bb2" firstAttribute="width" secondItem="HA7-XU-ypn" secondAttribute="width" multiplier="0.6" id="9dB-TX-i4n"/>
+                            <constraint firstItem="HA7-XU-ypn" firstAttribute="bottom" secondItem="kV7-gR-RhE" secondAttribute="bottom" constant="60" id="GI4-X3-SgS"/>
+                            <constraint firstItem="kV7-gR-RhE" firstAttribute="width" secondItem="p2s-Lt-Bb2" secondAttribute="width" id="LSl-Ap-dg0"/>
+                            <constraint firstItem="p2s-Lt-Bb2" firstAttribute="width" secondItem="HA7-XU-ypn" secondAttribute="width" multiplier="0.45" id="LbS-nh-efx"/>
+                            <constraint firstItem="p2s-Lt-Bb2" firstAttribute="centerX" secondItem="dHV-fs-hH6" secondAttribute="centerX" id="NGi-So-ics"/>
+                            <constraint firstItem="kV7-gR-RhE" firstAttribute="centerX" secondItem="dHV-fs-hH6" secondAttribute="centerX" id="VCl-3u-R8L"/>
+                            <constraint firstItem="p2s-Lt-Bb2" firstAttribute="centerY" secondItem="HA7-XU-ypn" secondAttribute="centerY" multiplier="0.7" id="ZvF-Wh-XKZ"/>
+                            <constraint firstItem="kV7-gR-RhE" firstAttribute="top" secondItem="p2s-Lt-Bb2" secondAttribute="bottom" id="che-2A-AOi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HA7-XU-ypn"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="9dB-TX-i4n"/>
+                                <exclude reference="LbS-nh-efx"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="9dB-TX-i4n"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="LbS-nh-efx"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="MuM-PM-EhO"/>
+                    <connections>
+                        <outlet property="resetButton" destination="K06-XD-yUs" id="Dg1-ns-TRJ"/>
+                        <outlet property="startPauseButton" destination="gS6-Ub-ruI" id="P1X-QM-D5G"/>
+                        <outlet property="timerValueLabel" destination="8Fi-0h-eQ1" id="jId-pF-6Af"/>
+                        <outlet property="timerView" destination="p2s-Lt-Bb2" id="DOJ-bM-v1e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E3y-58-bue" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="9ss-Pd-Vie" userLabel="TimerValueLabel Tap Gesture Recognizer">
+                    <connections>
+                        <action selector="timerValueLabelTapped:" destination="reZ-1K-LIf" id="Y9D-u1-wda"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1130" y="-392"/>
         </scene>
     </scenes>
     <resources>

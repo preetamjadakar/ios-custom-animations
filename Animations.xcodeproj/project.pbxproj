@@ -29,8 +29,6 @@
 		847C23E623C4452900F6E502 /* TransitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C23E423C4452900F6E502 /* TransitionsViewController.swift */; };
 		847C23E723C4452900F6E502 /* TransitionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847C23E423C4452900F6E502 /* TransitionsViewController.swift */; };
 		848AA7EB23FFE3140073A3E4 /* RobotoMono-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 848AA7EA23FFE3130073A3E4 /* RobotoMono-Light.ttf */; };
-		848AA7ED23FFE3930073A3E4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848AA7EC23FFE3930073A3E4 /* Constants.swift */; };
-		848AA7EF23FFF4400073A3E4 /* PJButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848AA7EE23FFF4400073A3E4 /* PJButton.swift */; };
 		848AA7F72400EFEB0073A3E4 /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848AA7F62400EFEB0073A3E4 /* UserNotifications.framework */; };
 		848AA7FB2400F1DA0073A3E4 /* egg_timer_alarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = 848AA7FA2400F1D90073A3E4 /* egg_timer_alarm.caf */; };
 		84A088C223E825B200683A7A /* SecondsCountDownView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A088C123E825B200683A7A /* SecondsCountDownView.swift */; };
@@ -74,14 +72,18 @@
 		84C6C67324161EC900D7088E /* CABasicAnimationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C6C67224161EC900D7088E /* CABasicAnimationViewController.swift */; };
 		84CBF1B6241669C40033AA9C /* GradientViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBF1B5241669C40033AA9C /* GradientViewController.swift */; };
 		84CBF1B82418C8530033AA9C /* KeyframeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CBF1B72418C8530033AA9C /* KeyframeViewController.swift */; };
+		84CE1ACF248E76C5007D515B /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE1ACE248E76C5007D515B /* TimerViewController.swift */; };
+		84CE1AD1248E76EE007D515B /* PJTimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE1AD0248E76EE007D515B /* PJTimerView.swift */; };
+		84CE1AD4248E770D007D515B /* PJPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE1AD2248E770D007D515B /* PJPickerView.swift */; };
+		84CE1AD5248E770D007D515B /* PJPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84CE1AD3248E770D007D515B /* PJPickerView.xib */; };
+		84CE1AD9248E773B007D515B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE1AD7248E773B007D515B /* Constants.swift */; };
+		84CE1ADA248E773B007D515B /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE1AD8248E773B007D515B /* StringExtention.swift */; };
+		84CE1AEC248E7F21007D515B /* PJButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE1AEB248E7F21007D515B /* PJButton.swift */; };
+		84CE1B14248E8E4A007D515B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 84CE1B13248E8E4A007D515B /* Localizable.strings */; };
 		84D9A25E23DEA69A00E5CF4A /* ViewAnimatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D9A25D23DEA69A00E5CF4A /* ViewAnimatorViewController.swift */; };
 		84E6DE1423CAEBFE00823743 /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E6DE1323CAEBFE00823743 /* DestinationViewController.swift */; };
 		84E6DE1623CAEC5B00823743 /* DestinationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84E6DE1523CAEC5B00823743 /* DestinationStoryboard.storyboard */; };
 		84E6DE1A23D042C100823743 /* TransformViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E6DE1923D042C100823743 /* TransformViewController.swift */; };
-		84E8492723FD2F2000890D22 /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8492623FD2F2000890D22 /* TimerViewController.swift */; };
-		84E8492923FD58FD00890D22 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8492823FD58FD00890D22 /* TimerView.swift */; };
-		84E8492B23FE655800890D22 /* PickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 84E8492A23FE655800890D22 /* PickerView.xib */; };
-		84E8492D23FE65A900890D22 /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84E8492C23FE65A900890D22 /* PickerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -125,8 +127,6 @@
 		847C23E023C4450C00F6E502 /* AnimateWithDurationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimateWithDurationViewController.swift; sourceTree = "<group>"; };
 		847C23E423C4452900F6E502 /* TransitionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionsViewController.swift; sourceTree = "<group>"; };
 		848AA7EA23FFE3130073A3E4 /* RobotoMono-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoMono-Light.ttf"; sourceTree = "<group>"; };
-		848AA7EC23FFE3930073A3E4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		848AA7EE23FFF4400073A3E4 /* PJButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PJButton.swift; sourceTree = "<group>"; };
 		848AA7F62400EFEB0073A3E4 /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
 		848AA7FA2400F1D90073A3E4 /* egg_timer_alarm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = egg_timer_alarm.caf; sourceTree = "<group>"; };
 		84A088C123E825B200683A7A /* SecondsCountDownView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondsCountDownView.swift; sourceTree = "<group>"; };
@@ -170,14 +170,18 @@
 		84C6C67224161EC900D7088E /* CABasicAnimationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CABasicAnimationViewController.swift; sourceTree = "<group>"; };
 		84CBF1B5241669C40033AA9C /* GradientViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientViewController.swift; sourceTree = "<group>"; };
 		84CBF1B72418C8530033AA9C /* KeyframeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyframeViewController.swift; sourceTree = "<group>"; };
+		84CE1ACE248E76C5007D515B /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
+		84CE1AD0248E76EE007D515B /* PJTimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJTimerView.swift; sourceTree = "<group>"; };
+		84CE1AD2248E770D007D515B /* PJPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJPickerView.swift; sourceTree = "<group>"; };
+		84CE1AD3248E770D007D515B /* PJPickerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PJPickerView.xib; sourceTree = "<group>"; };
+		84CE1AD7248E773B007D515B /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		84CE1AD8248E773B007D515B /* StringExtention.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
+		84CE1AEB248E7F21007D515B /* PJButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PJButton.swift; sourceTree = "<group>"; };
+		84CE1B13248E8E4A007D515B /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		84D9A25D23DEA69A00E5CF4A /* ViewAnimatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewAnimatorViewController.swift; sourceTree = "<group>"; };
 		84E6DE1323CAEBFE00823743 /* DestinationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		84E6DE1523CAEC5B00823743 /* DestinationStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DestinationStoryboard.storyboard; sourceTree = "<group>"; };
 		84E6DE1923D042C100823743 /* TransformViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformViewController.swift; sourceTree = "<group>"; };
-		84E8492623FD2F2000890D22 /* TimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
-		84E8492823FD58FD00890D22 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
-		84E8492A23FE655800890D22 /* PickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PickerView.xib; sourceTree = "<group>"; };
-		84E8492C23FE65A900890D22 /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
 		94CD520347A094E368F890A2 /* Pods-AnimationsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimationsTests.debug.xcconfig"; path = "Target Support Files/Pods-AnimationsTests/Pods-AnimationsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B2C0DE5ACAEC7241A6E9B347 /* Pods_AnimationsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimationsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD75BD04583E59DE3528B9D8 /* Pods-Animations-AnimationsUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Animations-AnimationsUITests.debug.xcconfig"; path = "Target Support Files/Pods-Animations-AnimationsUITests/Pods-Animations-AnimationsUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -319,13 +323,14 @@
 		84C6C62F24124D4C00D7088E /* Timer */ = {
 			isa = PBXGroup;
 			children = (
-				84E8492823FD58FD00890D22 /* TimerView.swift */,
-				848AA7EC23FFE3930073A3E4 /* Constants.swift */,
-				84E8492623FD2F2000890D22 /* TimerViewController.swift */,
-				84E8492A23FE655800890D22 /* PickerView.xib */,
-				84E8492C23FE65A900890D22 /* PickerView.swift */,
-				848AA7EE23FFF4400073A3E4 /* PJButton.swift */,
+				84CE1AD6248E773B007D515B /* Utils */,
+				84CE1AEB248E7F21007D515B /* PJButton.swift */,
+				84CE1AD0248E76EE007D515B /* PJTimerView.swift */,
+				84CE1ACE248E76C5007D515B /* TimerViewController.swift */,
+				84CE1AD2248E770D007D515B /* PJPickerView.swift */,
+				84CE1AD3248E770D007D515B /* PJPickerView.xib */,
 				848AA7FA2400F1D90073A3E4 /* egg_timer_alarm.caf */,
+				84CE1B13248E8E4A007D515B /* Localizable.strings */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -378,6 +383,15 @@
 				84C6C6522414CD4500D7088E /* tile01.png */,
 			);
 			path = heartsprite;
+			sourceTree = "<group>";
+		};
+		84CE1AD6248E773B007D515B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				84CE1AD7248E773B007D515B /* Constants.swift */,
+				84CE1AD8248E773B007D515B /* StringExtention.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		DB1DAB83A805DB5AF1DCFEF8 /* Pods */ = {
@@ -462,7 +476,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1110;
-				ORGANIZATIONNAME = Nihilent;
+				ORGANIZATIONNAME = preetamjadakar;
 				TargetAttributes = {
 					847C23A723C308E200F6E502 = {
 						CreatedOnToolsVersion = 11.1;
@@ -484,6 +498,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"en-IN",
 			);
 			mainGroup = 847C239F23C308E200F6E502;
 			productRefGroup = 847C23A923C308E200F6E502 /* Products */;
@@ -502,12 +517,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84E8492B23FE655800890D22 /* PickerView.xib in Resources */,
 				84C6C6582414CD4500D7088E /* tile014.png in Resources */,
 				84C6C66F2414CD4500D7088E /* tile01.png in Resources */,
 				84C6C6662414CD4500D7088E /* tile026.png in Resources */,
 				84C6C6612414CD4500D7088E /* tile021.png in Resources */,
 				84C6C63424124DE300D7088E /* AnimationCourseStoryboard.storyboard in Resources */,
+				84CE1B14248E8E4A007D515B /* Localizable.strings in Resources */,
 				84E6DE1623CAEC5B00823743 /* DestinationStoryboard.storyboard in Resources */,
 				848AA7FB2400F1DA0073A3E4 /* egg_timer_alarm.caf in Resources */,
 				84C6C65F2414CD4500D7088E /* tile022.png in Resources */,
@@ -540,6 +555,7 @@
 				847C23B823C308E500F6E502 /* Assets.xcassets in Resources */,
 				847C23B323C308E200F6E502 /* Main.storyboard in Resources */,
 				84AE008F23FFD15300E1E905 /* RobotoMono-Regular.ttf in Resources */,
+				84CE1AD5248E770D007D515B /* PJPickerView.xib in Resources */,
 				84C6C66A2414CD4500D7088E /* tile06.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -668,27 +684,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84CE1AD9248E773B007D515B /* Constants.swift in Sources */,
+				84CE1AD4248E770D007D515B /* PJPickerView.swift in Sources */,
+				84CE1ACF248E76C5007D515B /* TimerViewController.swift in Sources */,
 				84A088C623E82C8400683A7A /* NBMaterialButton.swift in Sources */,
-				848AA7ED23FFE3930073A3E4 /* Constants.swift in Sources */,
 				84E6DE1423CAEBFE00823743 /* DestinationViewController.swift in Sources */,
-				84E8492D23FE65A900890D22 /* PickerView.swift in Sources */,
 				84C6C67124152BBB00D7088E /* PropertyAnimatorViewController.swift in Sources */,
 				84A088C423E8275D00683A7A /* ClientViewController.swift in Sources */,
+				84CE1ADA248E773B007D515B /* StringExtention.swift in Sources */,
 				847C23E123C4450C00F6E502 /* AnimateWithDurationViewController.swift in Sources */,
 				84C6C63224124DC400D7088E /* ImageViewAnimationController.swift in Sources */,
-				84E8492723FD2F2000890D22 /* TimerViewController.swift in Sources */,
 				843BF14523E99E450098D355 /* CollectionViewController.swift in Sources */,
 				847C23B023C308E200F6E502 /* ViewController.swift in Sources */,
-				84E8492923FD58FD00890D22 /* TimerView.swift in Sources */,
 				84E6DE1A23D042C100823743 /* TransformViewController.swift in Sources */,
-				848AA7EF23FFF4400073A3E4 /* PJButton.swift in Sources */,
 				84A088C223E825B200683A7A /* SecondsCountDownView.swift in Sources */,
+				84CE1AD1248E76EE007D515B /* PJTimerView.swift in Sources */,
 				84D9A25E23DEA69A00E5CF4A /* ViewAnimatorViewController.swift in Sources */,
 				84A088C823E82C9600683A7A /* NBMaterialTextField.swift in Sources */,
 				847C23AC23C308E200F6E502 /* AppDelegate.swift in Sources */,
 				847C23E523C4452900F6E502 /* TransitionsViewController.swift in Sources */,
 				847C23B623C308E200F6E502 /* Animations.xcdatamodeld in Sources */,
 				84CBF1B6241669C40033AA9C /* GradientViewController.swift in Sources */,
+				84CE1AEC248E7F21007D515B /* PJButton.swift in Sources */,
 				8432CFF223E9CCA000D0A111 /* TableViewController.swift in Sources */,
 				84CBF1B82418C8530033AA9C /* KeyframeViewController.swift in Sources */,
 				847C23AE23C308E200F6E502 /* SceneDelegate.swift in Sources */,
@@ -756,6 +773,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -816,6 +834,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

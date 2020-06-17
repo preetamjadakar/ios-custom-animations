@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  Animations
+
+  Created by admin on 08/06/20.
+  Copyright © 2020 preetamjadakar. All rights reserved.
+*/
+"buttonTitle_start" = "Start";
+"buttonTitle_reset" = "Reset";
+"buttonTitle_cancel" = "Cancel";
+"buttonTitle_done" = "Done";
+"buttonTitle_resume" = "Resume";
+"buttonTitle_pause" = "Pause";
+"label_timer_completed" = "Time completed!";
+"label_min" = "min.";
+"label_sec" = "sec.";

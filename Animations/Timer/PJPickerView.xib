@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="W1F-Fe-0sN" customClass="PJPickerView" customModule="Animations">
+            <rect key="frame" x="0.0" y="0.0" width="434" height="666"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S94-ik-7bN">
+                    <rect key="frame" x="0.0" y="0.0" width="434" height="666"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OCG-zs-oT7">
+                        <rect key="frame" x="0.0" y="0.0" width="434" height="666"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XOa-1C-Sfs">
+                                <rect key="frame" x="57" y="163" width="320" height="340"/>
+                                <subviews>
+                                    <pickerView contentMode="center" translatesAutoresizingMaskIntoConstraints="NO" id="Jjc-zJ-RHx">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="216" id="ghE-Ea-PPp"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="dataSource" destination="W1F-Fe-0sN" id="Ypb-Ry-9P9"/>
+                                            <outlet property="delegate" destination="W1F-Fe-0sN" id="1NU-Mx-zOi"/>
+                                        </connections>
+                                    </pickerView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="mC3-l4-qJZ">
+                                        <rect key="frame" x="-32" y="286" width="384" height="34"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQi-mk-NMZ" customClass="PJButton" customModule="Animations">
+                                                <rect key="frame" x="0.0" y="0.0" width="167" height="34"/>
+                                                <inset key="contentEdgeInsets" minX="10" minY="5" maxX="10" maxY="5"/>
+                                                <state key="normal" title="buttonTitle_cancel"/>
+                                                <connections>
+                                                    <action selector="cancelButtonAction:" destination="W1F-Fe-0sN" eventType="touchUpInside" id="jfJ-Sg-GCa"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="62X-Cd-U3n" customClass="PJButton" customModule="Animations">
+                                                <rect key="frame" x="217" y="0.0" width="167" height="34"/>
+                                                <state key="normal" title="buttonTitle_done"/>
+                                                <connections>
+                                                    <action selector="doneButtonAction:" destination="W1F-Fe-0sN" eventType="touchUpInside" id="2kB-PG-Z5L"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="62X-Cd-U3n" firstAttribute="width" secondItem="uQi-mk-NMZ" secondAttribute="width" id="Mzy-R6-F5n"/>
+                                            <constraint firstItem="62X-Cd-U3n" firstAttribute="height" secondItem="uQi-mk-NMZ" secondAttribute="height" id="cuU-t9-N5O"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="mC3-l4-qJZ" firstAttribute="centerX" secondItem="XOa-1C-Sfs" secondAttribute="centerX" id="7lW-eE-ag2"/>
+                                    <constraint firstItem="YpY-yj-FgR" firstAttribute="bottom" secondItem="mC3-l4-qJZ" secondAttribute="bottom" constant="20" id="Ibt-CE-LNx"/>
+                                    <constraint firstItem="mC3-l4-qJZ" firstAttribute="top" secondItem="Jjc-zJ-RHx" secondAttribute="bottom" constant="70" id="SLW-uq-QkN"/>
+                                    <constraint firstItem="Jjc-zJ-RHx" firstAttribute="trailing" secondItem="YpY-yj-FgR" secondAttribute="trailing" id="U5c-wh-AM5"/>
+                                    <constraint firstItem="Jjc-zJ-RHx" firstAttribute="top" secondItem="XOa-1C-Sfs" secondAttribute="top" id="Uw1-aO-Z1S"/>
+                                    <constraint firstItem="Jjc-zJ-RHx" firstAttribute="leading" secondItem="YpY-yj-FgR" secondAttribute="leading" id="r96-Ab-5MD"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="YpY-yj-FgR"/>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="XOa-1C-Sfs" firstAttribute="centerX" secondItem="OCG-zs-oT7" secondAttribute="centerX" id="Sfb-vp-Wo4"/>
+                            <constraint firstItem="XOa-1C-Sfs" firstAttribute="centerY" secondItem="OCG-zs-oT7" secondAttribute="centerY" id="dcx-Kn-doF"/>
+                        </constraints>
+                    </view>
+                    <blurEffect style="light"/>
+                </visualEffectView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="gBi-eZ-eBy" firstAttribute="trailing" secondItem="S94-ik-7bN" secondAttribute="trailing" id="3lV-ZM-Boj"/>
+                <constraint firstAttribute="top" secondItem="S94-ik-7bN" secondAttribute="top" id="NFw-fS-6qF"/>
+                <constraint firstItem="S94-ik-7bN" firstAttribute="bottom" secondItem="W1F-Fe-0sN" secondAttribute="bottom" id="aTr-vz-4Z1"/>
+                <constraint firstItem="S94-ik-7bN" firstAttribute="leading" secondItem="gBi-eZ-eBy" secondAttribute="leading" id="drL-hU-uar"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="gBi-eZ-eBy"/>
+            <connections>
+                <outlet property="doneButton" destination="62X-Cd-U3n" id="gFU-73-HaQ"/>
+                <outlet property="pickerContainerView" destination="XOa-1C-Sfs" id="zyS-Kh-5Rd"/>
+                <outlet property="timePicker" destination="Jjc-zJ-RHx" id="1zt-cF-2z7"/>
+            </connections>
+            <point key="canvasLocation" x="78.260869565217391" y="141.29464285714286"/>
+        </view>
+    </objects>
+</document>
